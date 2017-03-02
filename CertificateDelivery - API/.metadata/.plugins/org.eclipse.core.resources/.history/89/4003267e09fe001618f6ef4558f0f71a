@@ -1,0 +1,12 @@
+package br.com.certificateDelivery.utils;
+
+import java.io.Serializable;
+
+import org.apache.log4j.Logger;
+
+
+public abstract class GenericService<T extends BaseEntity<ID>, ID extends Serializable> implements ServiceMap {
+
+	private final Logger LOGGER = Logger.getLogger(this.getClass());
+	
+}

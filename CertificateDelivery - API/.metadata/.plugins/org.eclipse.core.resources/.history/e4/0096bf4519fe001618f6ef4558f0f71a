@@ -1,0 +1,14 @@
+spring.datasource.url=jdbc:mysql://localhost:3306/certificatedelivery?autoReconnect=true&useSSL=false
+spring.datasource.username=root
+spring.datasource.password=root
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=false
+server.port=${PORT:8080}
+
+logging.file=target/CertificateDelivery.log
+logging.level.br.com.certificateDelivery=INFO
+logging.level.br.com.test.certificateDelivery=DEBUG
+logging.level.org.springframework=WARN
+logging.level.org.hibernate=WARN
+

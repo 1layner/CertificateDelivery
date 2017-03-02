@@ -1,0 +1,5 @@
+package br.com.test.certificateDelivery.utils;
+
+public class AppContextTest {
+
+}

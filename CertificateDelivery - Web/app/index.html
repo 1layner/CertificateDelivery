@@ -1,14 +1,38 @@
 <!DOCTYPE HTML>
 <html ng-app = "app">
 <head>
-    <meta-charset = "UTF-8" />
+    <meta-charset = "utf-8" />
     <title>Página Principal</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    
+    <!-- inject:css -->
+    <link rel="stylesheet" type="text/css" href="src/menu/menu.css" />
+    <link rel="stylesheet" type="text/css" href="src/usuario/usuario.css" />
+    <!-- endinject -->
+    
 </head>
 <body>
         
-    <h1>Bem Vindo a tela principal do sistema Certificate Delivery!!!</h1>
+    <!--<h1>Bem Vindo a tela principal do sistema Certificate Delivery!!!</h1>-->
+    
+    <div class="container">
+        <div class="row">
+            <header ng-include="'src/menu/menu.html'"></header>
+        </div>
+        
+
+        <ng-view></ng-view>
+    </div>
+    
     
     <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    
+    <!-- inject:js -->
+    <script src="src/app.module.js"></script>
+    <!-- endinject -->
+    
     
 </body>
 </html>
