@@ -7,4 +7,12 @@ public class ServicePath {
 	public static final String USUARIO_PATH = "/cadUsuario";
 	
 	public static final String PERMISSAO_PATH = "/permissao";
+	
+	public static final String ESTADO_PATH = "/estado";
+	
+	public static final String CIDADE_PATH = "/cidade";
+	
+	public static final String BAIRRO_PATH = "/bairro"; 
+	
+	public static final String LOGRADOURO_PATH = "/logradouro";
 }
