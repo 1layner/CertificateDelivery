@@ -1,0 +1,5 @@
+package br.com.certificateDelivery.permissao;
+
+public interface PermissaoRepository {
+
+}

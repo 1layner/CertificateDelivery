@@ -1,0 +1,5 @@
+package br.com.certificateDelivery.usuarioPermissao;
+
+public class UsuarioPermissaoKey {
+
+}

@@ -9,7 +9,7 @@ import br.com.certificateDelivery.utils.BaseEntity;
 
 @Entity
 @Table(name="tb_usuario")
-@AttributeOverride(name="id", column=@Column(name="cod_Usuario"))
+@AttributeOverride(name="id", column=@Column(name="cod_usuario"))
 public class UsuarioEntity extends BaseEntity<Long> {
 
 	@Column(name="nome", length=255, nullable=false)

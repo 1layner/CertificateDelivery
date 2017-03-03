@@ -1,0 +1,12 @@
+package br.com.certificateDelivery.usuarioPermissao;
+
+import javax.persistence.Embeddable;
+
+import br.com.certificateDelivery.utils.BaseKey;
+
+@Embeddable
+public class UsuarioPermissaoKey extends BaseKey {
+	
+	private static final long serialV
+
+}
