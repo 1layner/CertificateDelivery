@@ -1,10 +1,17 @@
 package br.com.certificateDelivery.usuario;
 
+import java.util.List;
+
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import br.com.certificateDelivery.permissao.PermissaoEntity;
 import br.com.certificateDelivery.utils.BaseEntity;
 
 @Entity
@@ -20,6 +27,14 @@ public class UsuarioEntity extends BaseEntity<Long> {
 	
 	@Column(name="senha", length=8, nullable=false, unique=true)
 	private String senha;
+	
+	@ManyToMany(fetch=FetchType.EAGER)
+	@JoinTable(
+			name="tb_usuario_permissao",
+			joinColumns=@JoinColumn(name="fk_usuario"),
+			inverseJoinColumns=@JoinColumn(name="fk_permissao")
+	)
+	private List<PermissaoEntity> permissao;
 	
 	public UsuarioEntity(){
 		

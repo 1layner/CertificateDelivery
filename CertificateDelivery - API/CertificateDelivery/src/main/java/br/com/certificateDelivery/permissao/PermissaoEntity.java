@@ -1,10 +1,18 @@
 package br.com.certificateDelivery.permissao;
 
+import java.util.List;
+
 import javax.persistence.AttributeOverride;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import br.com.certificateDelivery.usuario.UsuarioEntity;
 import br.com.certificateDelivery.utils.BaseEntity;
 
 @Entity
@@ -14,6 +22,14 @@ public class PermissaoEntity extends BaseEntity<Long> {
 	
 	@Column(name="permissao", length=255, nullable=false)
 	private String permissao;
+	
+	@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinTable(
+			name="tb_usuario_permissao",
+			joinColumns=@JoinColumn(name="fk_permissao"),
+			inverseJoinColumns=@JoinColumn(name="fk_usuario")
+	)
+	private List<UsuarioEntity> usuario;
 	
 	public PermissaoEntity(){
 		
