@@ -1,0 +1,5 @@
+package br.com.certificateDelivery.cidade;
+
+public class CidadeEntity {
+
+}

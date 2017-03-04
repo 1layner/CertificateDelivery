@@ -1,0 +1,18 @@
+package br.com.certificateDelivery.estado;
+
+import javax.persistence.AttributeOverride;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import br.com.certificateDelivery.utils.BaseEntity;
+
+@Entity
+@Table(name="tb_estado")
+@AttributeOverride(name="id", column=@Column(name="cod_estado"))
+public class EstadoEntity extends BaseEntity<Long> {
+	
+	@Column(name="siglaEstado", lenthg=2, nullable=false)
+	private char siglaEstado;
+
+}

@@ -1,0 +1,11 @@
+package br.com.certificateDelivery.estado;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="tb_bairro")
+
+public class EstadoEntity {
+
+}
