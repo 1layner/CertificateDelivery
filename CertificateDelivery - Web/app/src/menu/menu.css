@@ -1,3 +1,29 @@
 .imgLogo>img{
-    width: 240px;
-    height: 150px;
+    width: 320px;
+    height:120px;
+    padding-left: 130px;
+}
+
+.menu{
+    padding-top: 75px;
+    background: white;
+}
+
+.menu2>.menuBorder{
+    background: #f7f7f7;
+}
+
+.menu2>.menuBorder>.menuBorders>a{
+    color: #6c94c4;
+}
+
+.menu2>.menuBorder>.menuBorders>a:hover{
+    background:##C0C0C0;
+    border-left-width: 20px;
+    border-left-color: #6c94c4;
+}
+
+.menu2>.menuBorder>.menuBorders>a:focus{
+    border-left-width: 20px;
+    border-left-color: #6c94c4;
+}

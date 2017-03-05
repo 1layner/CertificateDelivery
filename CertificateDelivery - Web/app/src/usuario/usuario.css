@@ -5,3 +5,13 @@
 .separaCampos{
     padding-top: 20px;
 }
+
+.image{
+    height: 400px;
+}
+
+.image>img{
+    width: 200px;
+    height: 180px;
+    margin-top: 80px;
+}
