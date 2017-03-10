@@ -1,4 +1,4 @@
-package br.com.certificateDelivery.estado;
+/*package br.com.certificateDelivery.estado;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,4 +12,4 @@ import br.com.test.certificateDelivery.utils.AppContextTest;
 @RequestMapping(path=ServicePath.ESTADO_PATH)
 public class EstadoService extends GenericService<EstadoEntity, Long> {
 
-}
+}*/

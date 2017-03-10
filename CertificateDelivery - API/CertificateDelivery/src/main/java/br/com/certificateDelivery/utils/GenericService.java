@@ -6,8 +6,11 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 public abstract class GenericService<T extends BaseEntity<ID>, ID extends Serializable> implements ServiceMap {
@@ -19,8 +22,11 @@ public abstract class GenericService<T extends BaseEntity<ID>, ID extends Serial
 	
 	@RequestMapping(value="/listaTodos", method=RequestMethod.GET)
 	public List<T> findByAll(){
-		this.LOGGER.debug("Request all records");
 		return this.genericRepository.findAll();
 	}
 	
+	@RequestMapping(value="/save", method=RequestMethod.POST)
+	public T insercao(@RequestBody T entityObject){
+		return this.genericRepository.save(entityObject);
+	}
 }

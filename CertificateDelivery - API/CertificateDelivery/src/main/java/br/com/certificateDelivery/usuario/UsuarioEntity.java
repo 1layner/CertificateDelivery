@@ -2,7 +2,9 @@ package br.com.certificateDelivery.usuario;
 
 import java.util.List;
 
+
 import javax.persistence.AttributeOverride;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -28,7 +30,7 @@ public class UsuarioEntity extends BaseEntity<Long> {
 	@Column(name="senha", length=8, nullable=false, unique=true)
 	private String senha;
 	
-	@ManyToMany(fetch=FetchType.EAGER)
+	@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinTable(
 			name="tb_usuario_permissao",
 			joinColumns=@JoinColumn(name="fk_usuario"),
@@ -40,11 +42,12 @@ public class UsuarioEntity extends BaseEntity<Long> {
 		
 	}
 
-	public UsuarioEntity(String nome, String email, String senha) {
+	public UsuarioEntity(String nome, String email, String senha, List<PermissaoEntity> permissao) {
 		super();
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
+		this.permissao = permissao;
 	}
 
 	public String getNome() {
@@ -69,5 +72,13 @@ public class UsuarioEntity extends BaseEntity<Long> {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public List<PermissaoEntity> getPermissao() {
+		return permissao;
+	}
+
+	public void setPermissao(List<PermissaoEntity> permissao) {
+		this.permissao = permissao;
 	}
 }

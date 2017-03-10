@@ -7,9 +7,11 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
-public class BaseEntity<ID extends Serializable> extends AbstractPersistable<ID> {
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-	private static final long serialVersionUID = 1L;
+public abstract class BaseEntity<ID extends Serializable> extends AbstractPersistable<ID> {
+
+	private static final long serialVersionUID = 201505091502L;
 	
 	@Override
 	public String toString(){
@@ -25,8 +27,9 @@ public class BaseEntity<ID extends Serializable> extends AbstractPersistable<ID>
 	public void setId(ID id){
 		super.setId(id);
 	}
-	
+
 	@Override
+	@JsonIgnore
 	public boolean isNew(){
 		return this.getId() == null;
 	}

@@ -8,7 +8,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 public class BaseKey implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 201602010412L;
 	
 	@Override
 	public String toString(){

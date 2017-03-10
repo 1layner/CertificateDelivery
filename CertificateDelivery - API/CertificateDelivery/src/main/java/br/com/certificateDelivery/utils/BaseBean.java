@@ -7,6 +7,8 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 public abstract class BaseBean implements Serializable {
+	
+	private static final long serialVersionUID = 201604161022L;
 
 	@Override
 	public String toString(){
