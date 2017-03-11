@@ -1,0 +1,93 @@
+package br.com.certificateDelivery.permissao;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.AttributeOverride;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+import br.com.certificateDelivery.usuario.UsuarioEntity;
+import br.com.certificateDelivery.utils.BaseEntity;
+
+@Entity
+@Table(name="tb_permissao")
+@AttributeOverride(name="id", column=@Column(name="cod_permissao"))
+public class PermissaoEntity extends BaseEntity<Long> {
+	
+	@Column(name="permissao", length=255, nullable=false)
+	private String permissao;
+	
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(
+			name="tb_usuario_permissao",
+			joinColumns=@JoinColumn(name="fk_permissao"),
+			inverseJoinColumns=@JoinColumn(name="fk_usuario")
+	)
+	//private List<UsuarioEntity> usuario;
+	private Set<UsuarioEntity> usuario = new HashSet<UsuarioEntity>();
+	
+	public PermissaoEntity(){
+		
+	}
+
+	public PermissaoEntity(String permissao, List<UsuarioEntity> usuario) {
+		super();
+		this.permissao = permissao;
+		this.usuario = usuario;
+	}
+
+	public String getPermissao() {
+		return permissao;
+	}
+
+	public void setPermissao(String permissao) {
+		this.permissao = permissao;
+	}
+
+	public Set<UsuarioEntity> getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Set<UsuarioEntity> usuario) {
+		this.usuario = usuario;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((permissao == null) ? 0 : permissao.hashCode());
+		result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		PermissaoEntity other = (PermissaoEntity) obj;
+		if (permissao == null) {
+			if (other.permissao != null)
+				return false;
+		} else if (!permissao.equals(other.permissao))
+			return false;
+		if (usuario == null) {
+			if (other.usuario != null)
+				return false;
+		} else if (!usuario.equals(other.usuario))
+			return false;
+		return true;
+	}
+}

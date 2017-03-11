@@ -3,7 +3,7 @@ angular.module('app', ['ngRoute'])
        $routeProvider.
             when('/cadUsuario', {
                 templateUrl: 'src/usuario/usuario.html',
-                //controller: 'UsuarioCtrl'
+                controller: 'usuarioCtrl'
             })
        
     });

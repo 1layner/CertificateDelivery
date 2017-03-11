@@ -4,7 +4,7 @@
     </div>
 </div>
 
-<form class="forCadUsuario">
+<form class="forCadUsuario" ng-submit="cadastrarUsuario(usuario)">
     <div class="row">
         <div class="col-lg-5 image-responsive image text-center">
             <img src="img/imgUser.png" />
@@ -12,32 +12,30 @@
         
         <div class="col-lg-7 separaCampos">
             <label for="nome" class="control-label">Nome Completo:</label>
-            <input type="text" class="form-control" placeholder="Nome Completo">
+            <input type="text" class="form-control" placeholder="Nome Completo" ng-model="usuario.nome">
         </div>
     
         <div class="col-lg-7 separaCampos">
             <label for="tipoPart" class="control-label">Tipo de Participante:</label>
-            <select class="form-control">
+            <select class="form-control" ng-model="usuario.permissao">
                 <option>Selecione o tipo de participante</option>
-                <option>Público Ouvinte</option>
-                <option>Organizador</option>
-                <option>Palestrante</option>
+                <option ng-repeat="permissao in permissoes" value="{{ permissao }}"> {{ permissao.permissao }} </option>
             </select>
         </div>
        
         <div class="col-lg-7 separaCampos">
             <label for="email" class="control-label">Email:</label>
-            <input type="email" class="form-control" placeholder="Email">
+            <input type="email" class="form-control" placeholder="Email" ng-model="usuario.email">
         </div>
     
         <div class="col-lg-7 separaCampos">
             <label for="senha" class="control-label">Senha:</label>
-            <input type="password" class="form-control" placeholder="Senha">
+            <input type="password" class="form-control" placeholder="Senha" ng-model="usuario.senha">
         </div>
-    
+           
         <div class="col-lg-3 separaCampos">
             <button type="button" class="btn btn-danger">Limpar</button>
-            <button type="button" class="btn btn-success">Salvar</button>
+            <button type="submit" class="btn btn-success">Salvar</button>
         </div>
     </div>
 </form>

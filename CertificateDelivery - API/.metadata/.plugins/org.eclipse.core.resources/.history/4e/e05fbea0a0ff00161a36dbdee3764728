@@ -1,5 +1,0 @@
-package br.com.certificateDelivery.usuarioPermissao;
-
-public interface UsuarioPermissaoRepository {
-
-}

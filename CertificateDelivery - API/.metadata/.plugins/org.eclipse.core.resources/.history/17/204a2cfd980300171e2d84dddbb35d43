@@ -1,0 +1,13 @@
+package br.com.certificateDelivery.logradouro;
+
+import javax.persistence.AttributeOverride;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="tb_logradouro")
+@AttributeOverride(name="id", column=@Column(name="cod_logradouro"))
+public class LogradouroEntity {
+
+}
