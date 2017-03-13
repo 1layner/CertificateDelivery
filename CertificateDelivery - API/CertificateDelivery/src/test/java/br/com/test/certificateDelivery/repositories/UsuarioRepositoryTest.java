@@ -32,7 +32,7 @@ public class UsuarioRepositoryTest {
 		LOGGER.info(user + " ");
 	}
 	
-	@Test
+	/*@Test
 	public void addUsu(){
 		PermissaoEntity per1 = new PermissaoEntity();
 		per1.setPermissao("organizador");
@@ -49,6 +49,6 @@ public class UsuarioRepositoryTest {
 		usuarioRepository.save(usu);
 		
 		LOGGER.info(usu + "");
-	}
+	}*/
 	
 }

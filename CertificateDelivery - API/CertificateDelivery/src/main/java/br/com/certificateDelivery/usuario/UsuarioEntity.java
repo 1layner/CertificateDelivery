@@ -11,6 +11,8 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.com.certificateDelivery.permissao.PermissaoEntity;
@@ -30,19 +32,15 @@ public class UsuarioEntity extends BaseEntity<Long> {
 	@Column(name="senha", length=8, nullable=false, unique=true)
 	private String senha;
 	
-	@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinTable(
-			name="tb_usuario_permissao",
-			joinColumns=@JoinColumn(name="fk_usuario"),
-			inverseJoinColumns=@JoinColumn(name="fk_permissao")
-	)
-	private List<PermissaoEntity> permissao;
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="permissao")
+	private PermissaoEntity permissao;
 	
 	public UsuarioEntity(){
 		
 	}
 
-	public UsuarioEntity(String nome, String email, String senha, List<PermissaoEntity> permissao) {
+	public UsuarioEntity(String nome, String email, String senha, PermissaoEntity permissao) {
 		super();
 		this.nome = nome;
 		this.email = email;
@@ -74,11 +72,11 @@ public class UsuarioEntity extends BaseEntity<Long> {
 		this.senha = senha;
 	}
 
-	public List<PermissaoEntity> getPermissao() {
+	public PermissaoEntity getPermissao() {
 		return permissao;
 	}
 
-	public void setPermissao(List<PermissaoEntity> permissao) {
+	public void setPermissao(PermissaoEntity permissao) {
 		this.permissao = permissao;
 	}
 }
