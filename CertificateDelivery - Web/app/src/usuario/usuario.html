@@ -14,12 +14,12 @@
             <label for="nome" class="control-label">Nome Completo:</label>
             <input type="text" class="form-control" placeholder="Nome Completo" ng-model="usuario.nome">
         </div>
-    
+        
         <div class="col-lg-7 separaCampos">
             <label for="tipoPart" class="control-label">Tipo de Participante:</label>
-            <select class="form-control" ng-model="usuario.permissao">
+            <select class="form-control" ng-model="usuario.permissao[0].id">
                 <option>Selecione o tipo de participante</option>
-                <option ng-repeat="permissao in permissoes" value="{{ permissao }}"> {{ permissao.permissao }} </option>
+                <option ng-repeat="permissao in permissoes" value="{{permissao.id}}"> {{permissao.permissao}} </option>
             </select>
         </div>
        
@@ -32,21 +32,10 @@
             <label for="senha" class="control-label">Senha:</label>
             <input type="password" class="form-control" placeholder="Senha" ng-model="usuario.senha">
         </div>
-           
+        
         <div class="col-lg-3 separaCampos">
             <button type="button" class="btn btn-danger">Limpar</button>
             <button type="submit" class="btn btn-success">Salvar</button>
         </div>
     </div>
 </form>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
- 

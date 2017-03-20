@@ -1,10 +1,13 @@
 package br.com.certificateDelivery.permissao;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -27,18 +30,13 @@ public class PermissaoEntity extends BaseEntity<Long> {
 	@Column(name = "permissao", length = 255, nullable = false)
 	private String permissao;
 
-	@JsonIgnore
-	@OneToMany(mappedBy="permissao", cascade=CascadeType.ALL)
-	private List<UsuarioEntity> usuario;
-
 	public PermissaoEntity() {
 
 	}
 
-	public PermissaoEntity(String permissao, List<UsuarioEntity> usuario) {
+	public PermissaoEntity(String permissao) {
 		super();
 		this.permissao = permissao;
-		this.usuario = usuario;
 	}
 
 	public String getPermissao() {
@@ -47,13 +45,5 @@ public class PermissaoEntity extends BaseEntity<Long> {
 
 	public void setPermissao(String permissao) {
 		this.permissao = permissao;
-	}
-
-	public List<UsuarioEntity> getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(List<UsuarioEntity> usuario) {
-		this.usuario = usuario;
 	}
 }

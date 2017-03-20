@@ -1,5 +1,6 @@
 package br.com.certificateDelivery.usuario;
 
+import java.io.Serializable;
 import java.util.List;
 
 
@@ -31,16 +32,20 @@ public class UsuarioEntity extends BaseEntity<Long> {
 	
 	@Column(name="senha", length=8, nullable=false, unique=true)
 	private String senha;
-	
-	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="permissao")
-	private PermissaoEntity permissao;
+	 
+	@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JoinTable(
+			name="tb_usuario_permissao",
+			joinColumns=@JoinColumn(name="fk_usuario"),
+			inverseJoinColumns=@JoinColumn(name="fk_permissao")
+	)
+	private List<PermissaoEntity> permissao;
 	
 	public UsuarioEntity(){
 		
 	}
 
-	public UsuarioEntity(String nome, String email, String senha, PermissaoEntity permissao) {
+	public UsuarioEntity(String nome, String email, String senha, List<PermissaoEntity> permissao) {
 		super();
 		this.nome = nome;
 		this.email = email;
@@ -72,11 +77,11 @@ public class UsuarioEntity extends BaseEntity<Long> {
 		this.senha = senha;
 	}
 
-	public PermissaoEntity getPermissao() {
+	public List<PermissaoEntity> getPermissao() {
 		return permissao;
 	}
 
-	public void setPermissao(PermissaoEntity permissao) {
+	public void setPermissao(List<PermissaoEntity> permissao) {
 		this.permissao = permissao;
 	}
 }

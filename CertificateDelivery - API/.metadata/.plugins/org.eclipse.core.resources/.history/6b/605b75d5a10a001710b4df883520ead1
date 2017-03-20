@@ -1,0 +1,64 @@
+package br.com.certificateDelivery.usuario;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.serializer.Deserializer;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.com.certificateDelivery.permissao.PermissaoEntity;
+import br.com.certificateDelivery.permissao.PermissaoRepository;
+import br.com.certificateDelivery.utils.GenericService;
+import br.com.certificateDelivery.utils.ServicePath;
+
+@RestController
+@RequestMapping(path=ServicePath.USUARIO_PATH)
+public class UsuarioService extends GenericService<UsuarioEntity, Long> {
+
+	@Autowired
+	private UsuarioRepository usuarioRepository;
+	
+	@Override
+	public UsuarioEntity insercao(@RequestBody UsuarioEntity entityObject){
+	
+		Deserializer<UsuarioEntity> d = new Deserializer<UsuarioEntity>(){
+
+			@Override
+			public UsuarioEntity deserialize(InputStream inputStream) throws IOException {
+				
+				UsuarioEntity usuario = new UsuarioEntity();
+				
+				PermissaoEntity permissao = new PermissaoEntity();
+				
+				List<PermissaoEntity> permissao= new ArrayList<PermissaoEntity>();
+			
+				Map dados = new HashMap<>();
+				
+				dados.put(1, usuario.getNome());
+				dados.put(2, usuario.getEmail());
+				dados.put(3, usuario.getSenha());
+				dados.put(4, permissao.getPermissao);
+				
+				return entityObject;
+			}
+			
+		};
+		
+		return super.insercao(entityObject);
+	}
+	
+}

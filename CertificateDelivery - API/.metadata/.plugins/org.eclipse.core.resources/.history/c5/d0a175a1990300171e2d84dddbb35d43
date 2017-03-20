@@ -1,5 +1,0 @@
-package br.com.certificateDelivery.logradouro;
-
-public interface LogradouroRepository {
-
-}

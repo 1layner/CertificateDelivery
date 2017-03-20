@@ -1,5 +1,0 @@
-package br.com.certificateDelivery.bairro;
-
-public interface BairroRepository {
-
-}

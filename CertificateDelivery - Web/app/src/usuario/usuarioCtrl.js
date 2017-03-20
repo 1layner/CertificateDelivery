@@ -1,7 +1,9 @@
 angular.module('app')
     .controller('usuarioCtrl', function($scope, $http){
     
-    $scope.usuario={};
+    $scope.usuario={
+        "permissao": []
+    };
     $scope.permissao={};
     $scope.permissoes=[];
     
@@ -14,18 +16,23 @@ angular.module('app')
             
         })
         .error(function(error){
-            alert("Erro ao listar permissoes");
+            console.log("Erro ao listar permissoes");
         });
    
     
     $scope.cadastrarUsuario = function(usuario){
         $http.post("http://localhost:8080/usuario/save", usuario)
-        .success(function(data){
+        .success(function(response){                
+        
+            $scope.usuario.push(response.data);
+            
             console.log("Usuario cadastrado com sucesso!!");
-            console.log(data);
         })
-        .error(function(error){
-            alert("Erro ao cadastrar usuario");
+        .error(function(error){ 
+            console.log("Erro ao cadastrar usuario");
         });
     }
+
+    
 });
+

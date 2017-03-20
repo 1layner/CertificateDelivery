@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import br.com.certificateDelivery.permissao.PermissaoEntity;
+import br.com.certificateDelivery.usuario.UsuarioEntity;
+
 
 public abstract class GenericService<T extends BaseEntity<ID>, ID extends Serializable> implements ServiceMap {
 

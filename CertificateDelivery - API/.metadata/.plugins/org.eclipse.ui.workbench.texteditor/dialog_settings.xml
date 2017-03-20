@@ -8,6 +8,7 @@
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="et "/>
 			<item value="2017-03-05"/>
 		</list>
 		<list key="replacehistory">
