@@ -1,11 +1,10 @@
 <!DOCTYPE HTML>
 <html ng-app = "app">
 <head>
-    <meta-charset = "utf-8" />
     <title>Página Principal</title>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-    
+
     <!-- inject:css -->
+    <link rel="stylesheet" href="css/bootstrap.spacelab.min.css" >
     <link rel="stylesheet" type="text/css" href="src/menu/menu.css" />
     <link rel="stylesheet" type="text/css" href="src/usuario/usuario.css" />
     <!-- endinject -->
@@ -14,16 +13,18 @@
 <body>
         
     <!--<h1>Bem Vindo a tela principal do sistema Certificate Delivery!!!</h1>-->
-    
-    <div class="container">
-        <div class="row">
+ 
+
+    <div class="row">
+        <section>
             <header ng-include="'src/menu/menu.html'"></header>
-        </div>
-        
-        <div class="row">
-            <ng-view></ng-view>
-        </div>
+        </section>
     </div>
+<div class="container">      
+    <div>
+        <ng-view></ng-view>
+    </div>
+</div>
     
     
     <script src="js/angular.js"></script>
@@ -33,6 +34,7 @@
     <!-- inject:js -->
     <script src="src/app.module.js"></script>
     <script src="src/usuario/usuarioCtrl.js"></script>
+    <script src="src/configuracoes/configCtrl.js"></script>
     <!-- endinject -->
     
     

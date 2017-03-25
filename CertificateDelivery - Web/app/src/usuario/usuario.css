@@ -6,12 +6,21 @@
     padding-top: 20px;
 }
 
-.image{
+/*.image{
     height: 400px;
-}
+}*/
 
-.image>img{
+/*.image>img{
     width: 200px;
     height: 180px;
     margin-top: 80px;
+}*/
+.image{
+    height: 500px;
+    width: auto;
+}
+
+.image>img{
+    height: 200px;
+    width: auto;
 }

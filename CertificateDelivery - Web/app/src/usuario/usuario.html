@@ -1,41 +1,60 @@
 <div class="row">
-    <div class="col-lg-12 tUsuario">
-        <p class="navbar navbar-default">Cadastro de Usuário</p>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 tUsuario navbar navbar-default">
+        <p>Cadastro de Usuário</p>
+    </div>
+</div>
+    
+<div class="row well bs-component">  
+    
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 image image-responsive">
+        <img src="img/imgUser.png" />
+    </div> 
+    
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="well bs-component">
+            <form class="forCadUsuario" ng-submit="cadastrarUsuario(usuario)">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 separaCampos">
+                        <label for="nome" class="control-label">Nome Completo:</label>
+                        <input type="text" class="form-control" placeholder="Nome Completo" ng-model="usuario.nome" name="nome">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 separaCampos">
+                        <label for="tipoPart" class="control-label">Tipo de Participante:</label>
+                        <select class="form-control" ng-model="usuario.permissao[0].id" name="permissao">
+                            <option>Selecione o tipo de participante</option>
+                            <option ng-repeat="permissao in permissoes" value="{{permissao.id}}"> {{permissao.permissao}} </option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 separaCampos">
+                        <label for="email" class="control-label">Email:</label>
+                        <input type="email" class="form-control" placeholder="Email" ng-model="usuario.email" name="email">
+                    </div>
+                </div>
+                
+                
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 separaCampos">
+                        <label for="senha" class="control-label">Senha:</label>
+                        <input type="password" class="form-control" placeholder="Senha" ng-model="usuario.senha" name="senha">
+                    </div>
+                </div>
+                
+                
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 separaCampos">
+                        <button type="button" class="btn btn-danger">Limpar</button>
+                        <button type="submit" class="btn btn-success">Salvar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
-<form class="forCadUsuario" ng-submit="cadastrarUsuario(usuario)">
-    <div class="row">
-        <div class="col-lg-5 image-responsive image text-center">
-            <img src="img/imgUser.png" />
-        </div>
-        
-        <div class="col-lg-7 separaCampos">
-            <label for="nome" class="control-label">Nome Completo:</label>
-            <input type="text" class="form-control" placeholder="Nome Completo" ng-model="usuario.nome">
-        </div>
-        
-        <div class="col-lg-7 separaCampos">
-            <label for="tipoPart" class="control-label">Tipo de Participante:</label>
-            <select class="form-control" ng-model="usuario.permissao[0].id">
-                <option>Selecione o tipo de participante</option>
-                <option ng-repeat="permissao in permissoes" value="{{permissao.id}}"> {{permissao.permissao}} </option>
-            </select>
-        </div>
-       
-        <div class="col-lg-7 separaCampos">
-            <label for="email" class="control-label">Email:</label>
-            <input type="email" class="form-control" placeholder="Email" ng-model="usuario.email">
-        </div>
     
-        <div class="col-lg-7 separaCampos">
-            <label for="senha" class="control-label">Senha:</label>
-            <input type="password" class="form-control" placeholder="Senha" ng-model="usuario.senha">
-        </div>
-        
-        <div class="col-lg-3 separaCampos">
-            <button type="button" class="btn btn-danger">Limpar</button>
-            <button type="submit" class="btn btn-success">Salvar</button>
-        </div>
-    </div>
-</form>

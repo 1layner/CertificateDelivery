@@ -11,7 +11,6 @@ angular.module('app')
         $http.get("http://localhost:8080/permissao/listaTodos")
         .success(function(data){
             $scope.permissoes=data;
-            console.log("Listando");
             console.log(data);
             
         })
