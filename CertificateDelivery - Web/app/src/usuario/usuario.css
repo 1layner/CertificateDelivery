@@ -6,21 +6,8 @@
     padding-top: 20px;
 }
 
-/*.image{
-    height: 400px;
-}*/
-
-/*.image>img{
-    width: 200px;
-    height: 180px;
+.resolucao{
+    width: 320px;
+    height: 300px;
     margin-top: 80px;
-}*/
-.image{
-    height: 500px;
-    width: auto;
-}
-
-.image>img{
-    height: 200px;
-    width: auto;
 }
