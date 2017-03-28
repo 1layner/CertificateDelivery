@@ -15,18 +15,26 @@
     
     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <div class="well bs-component">
-            <form class="forCadUsuario" ng-submit="cadastrarUsuario(usuario)">
+            <form class="forCadUsuario" ng-submit="cadastrarUsuario(usuario)" name="cadUsuario" novalidate>
                 <div class="row">
                     <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 separaCampos">
                         <label for="nome" class="control-label">Nome Completo:</label>
-                        <input type="text" class="form-control" placeholder="Nome Completo" ng-model="usuario.nome" name="nome">
+                        <input type="text" class="form-control" placeholder="Nome Completo" ng-model="usuario.nome" name="nome" ng-required="true" />
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                        <div class="alert alert-dismissible alert-danger" ng-if="cadUsuario.nome.$error.required">
+                            <strong> O campo nome deve ser preenchido!! </strong>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="row">
                     <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 separaCampos">
                         <label for="tipoPart" class="control-label">Tipo de Participante:</label>
-                        <select class="form-control" ng-model="usuario.permissao[0].id" name="permissao">
+                        <select class="form-control" ng-model="usuario.permissao[0].id" name="permissao" ng-required="true">
                             <option>Selecione o tipo de participante</option>
                             <option ng-repeat="permissao in permissoes" value="{{permissao.id}}"> {{permissao.permissao}} </option>
                         </select>
@@ -34,17 +42,40 @@
                 </div>
                 
                 <div class="row">
-                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 separaCampos">
-                        <label for="email" class="control-label">Email:</label>
-                        <input type="email" class="form-control" placeholder="Email" ng-model="usuario.email" name="email">
+                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                        <div class="alert alert-dismissible alert-danger">
+                            <strong> Um perfil deve ser selecionado!! </strong>
+                        </div>
                     </div>
                 </div>
                 
+                <div class="row">
+                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 separaCampos">
+                        <label for="email" class="control-label">Email:</label>
+                        <input type="email" class="form-control" placeholder="Email" ng-model="usuario.email" name="email" ng-required="true">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                        <div class="alert alert-dismissible alert-danger">
+                            <strong> O campo email deve ser preenchido!! </strong>
+                        </div>
+                    </div>
+                </div>
                 
                 <div class="row">
                     <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 separaCampos">
                         <label for="senha" class="control-label">Senha:</label>
-                        <input type="password" class="form-control" placeholder="Senha" ng-model="usuario.senha" name="senha">
+                        <input type="password" class="form-control" placeholder="Senha" ng-model="usuario.senha" name="senha" ng-required="true">
+                    </div>
+                </div>
+        
+                <div class="row">
+                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                        <div class="alert alert-dismissible alert-danger">
+                            <strong> O campo senha deve ser preenchido!! </strong>
+                        </div>
                     </div>
                 </div>
                 

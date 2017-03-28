@@ -36,7 +36,7 @@ public abstract class GenericService<T extends BaseEntity<ID>, ID extends Serial
 	}
 	
 	@RequestMapping(value="/listaUnico/{id}", method=RequestMethod.GET)
-	public T listaUnico(@PathVariable Long id){
-		return this.genericRepository.findOne((ID) id);
+	public T listaUnico(@PathVariable ID id){
+		return this.genericRepository.findOne(id);
 	}
 }
