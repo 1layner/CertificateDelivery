@@ -32,11 +32,23 @@ public abstract class GenericService<T extends BaseEntity<ID>, ID extends Serial
 	
 	@RequestMapping(value="/save", method=RequestMethod.POST)
 	public T insercao(@RequestBody T entityObject){
+		if(entityObject.getId()!=null){
+			System.out.println("Erro!! O metodo chamado nao realiza update em tabelas.");
+		}
+		return this.genericRepository.save(entityObject);
+	}
+	
+	@RequestMapping(value="/update", method=RequestMethod.POST)
+	public T update(@RequestBody T entityObject){
+		if(entityObject.getId()==null){
+			System.out.println("Erro!! O metodo chamado nao realiza insercao em tabelas.");
+		}
 		return this.genericRepository.save(entityObject);
 	}
 	
 	@RequestMapping(value="/listaUnico/{id}", method=RequestMethod.GET)
 	public T listaUnico(@PathVariable ID id){
+		//System.out.println("XXX");
 		return this.genericRepository.findOne(id);
 	}
 }

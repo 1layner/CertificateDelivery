@@ -16,6 +16,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import br.com.certificateDelivery.permissao.PermissaoEntity;
 import br.com.certificateDelivery.utils.BaseEntity;
 

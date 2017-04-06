@@ -32,5 +32,5 @@ public class UsuarioService extends GenericService<UsuarioEntity, Long> {
 		}
 		
 		return super.insercao(entityObject);
-	}
+	}	
 }
