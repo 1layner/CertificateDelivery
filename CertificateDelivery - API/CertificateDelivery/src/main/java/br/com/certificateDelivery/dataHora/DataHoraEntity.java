@@ -1,4 +1,4 @@
-/*package br.com.certificateDelivery.dataHora;
+package br.com.certificateDelivery.dataHora;
 
 import java.sql.Time;
 import java.util.Date;
@@ -58,4 +58,4 @@ public class DataHoraEntity extends BaseEntity<Long> {
 	public void setDuracaoEvento(int duracaoEvento) {
 		this.duracaoEvento = duracaoEvento;
 	}
-}*/
+}

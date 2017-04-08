@@ -1,4 +1,4 @@
-/*package br.com.certificateDelivery.estado;
+package br.com.certificateDelivery.estado;
 
 import java.util.List;
 
@@ -18,35 +18,25 @@ import br.com.certificateDelivery.utils.BaseEntity;
 @AttributeOverride(name="id", column=@Column(name="cod_estado"))
 public class EstadoEntity extends BaseEntity<Long> {
 	
-	@Column(name="siglaEstado", length=2, nullable=false)
-	private char siglaEstado;
-	
-	//@OneToMany(mappedBy="cidade", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	private List<CidadeEntity> cidade;
+	@Column(name="siglaestado", length=2, nullable=false)
+	private String siglaEstado;
+
 	
 	public EstadoEntity(){
 		
 	}
 
-	public EstadoEntity(char siglaEstado, List<CidadeEntity> cidade) {
+	public EstadoEntity(String siglaEstado) {
 		super();
 		this.siglaEstado = siglaEstado;
-		this.cidade = cidade;
 	}
 
-	public char getSiglaEstado() {
+	public String getSiglaEstado() {
 		return siglaEstado;
 	}
 
-	public void setSiglaEstado(char siglaEstado) {
+	public void setSiglaEstado(String siglaEstado) {
 		this.siglaEstado = siglaEstado;
 	}
 
-	public List<CidadeEntity> getCidade() {
-		return cidade;
-	}
-
-	public void setCidade(List<CidadeEntity> cidade) {
-		this.cidade = cidade;
-	}
-}*/
+}

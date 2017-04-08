@@ -1,6 +1,9 @@
 
 <!DOCTYPE html>
-    <html class="no-js" ng-app="app"> 
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" ng-app="app"> <!--<![endif]-->
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,8 +12,8 @@
 	<meta name="description" content="Free HTML5 Template by FreeHTML5.co" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
 	<meta name="author" content="FreeHTML5.co" />
-
-  <!-- 
+        
+    <!-- 
 	//////////////////////////////////////////////////////
 
 	FREE HTML5 TEMPLATE 
@@ -22,9 +25,9 @@
 	Facebook: 		https://www.facebook.com/fh5co
 
 	//////////////////////////////////////////////////////
-	 -->
+	-->
 
-  	<!-- Facebook and Twitter integration -->
+    <!-- Facebook and Twitter integration -->    
 	<meta property="og:title" content=""/>
 	<meta property="og:image" content=""/>
 	<meta property="og:url" content=""/>
@@ -35,10 +38,10 @@
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
 
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
 
-	<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400" rel="stylesheet">
+	<!--<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:300,400" rel="stylesheet">-->
 	
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
@@ -53,6 +56,8 @@
         
     <!-- inject:css -->
     <link rel="stylesheet" href="src/usuario/usuario.css">
+    <link rel="stylesheet" href="src/configuracoes/config.css"/>
+    <link rel="stylesheet" href="src/meusEventos/meusEventos.css"/>
 
 
 	<!-- Modernizr JS -->
@@ -64,10 +69,15 @@
 
 	</head>
 	<body>
-	       
-        <header role="banner" id="fh5co-header" ng-include="'src/menu/menu.html'"></header>
-        
+	    
         <div class="container">
+            <div class="row">
+                <header role="banner" id="fh5co-header" ng-include="'src/menu/menu.html'"></header>
+            </div>
+       
+        
+        
+  
             <div class="row">
                 <ng-view></ng-view>
             </div>
@@ -131,16 +141,17 @@
             </div>
         </div>
 
-        
-        
-        
-        
-	
     <!-- ANGULAR JS -->
     <script src="js/angular.js"></script>
     <script src="js/angular-route.js"></script>
     <script src="js/angular-route.min.js"></script>
     
+    <!-- inject:js -->
+    <script src="src/app.module.js"></script>      
+    <script src="src/usuario/usuarioCtrl.js"></script>
+    <script src="src/configuracoes/configCtrl.js"></script>   
+    <script src="src/meusEventos/meusEventosCtrl.js"></script>
+        
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
@@ -154,10 +165,11 @@
 	<!-- Counters -->
 	<script src="js/jquery.countTo.js"></script>
 	<!-- Main JS (Do not remove) -->
-	<script src="js/main.js"></script>
-    <script src="src/app.module.js"></script>
+    <script src="js/main.js"></script>
         
-    <script src="src/usuario/usuarioCtrl.js"></script>
+    
+        
+    
 
 	</body>
 </html>

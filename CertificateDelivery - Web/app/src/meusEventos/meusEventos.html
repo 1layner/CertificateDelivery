@@ -1,0 +1,26 @@
+<br /><br /><br /><br />
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="navbar navbar-default tUsuario ">
+            <p>Meus Eventos</p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+        <a href="#/meusEventos" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Criar Evento</a>  
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-offset-2 col-xs-8 col-sm-8 col-md-8 col-lg-8">
+        <div class="bs-component">
+            <div class="panel panel-default separandoEventos">
+                <div class="panel-footer bordas" ng-repeat="evento in eventos">
+                    {{ evento.nome }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

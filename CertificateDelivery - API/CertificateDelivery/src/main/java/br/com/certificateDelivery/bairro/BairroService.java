@@ -1,4 +1,4 @@
-/*package br.com.certificateDelivery.bairro;
+package br.com.certificateDelivery.bairro;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,4 +10,4 @@ import br.com.certificateDelivery.utils.ServicePath;
 @RequestMapping(path=ServicePath.BAIRRO_PATH)
 public class BairroService extends GenericService<BairroEntity, Long> {
 
-}*/
+}

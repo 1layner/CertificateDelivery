@@ -1,4 +1,4 @@
-/*package br.com.certificateDelivery.logradouro;
+package br.com.certificateDelivery.logradouro;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
@@ -12,24 +12,28 @@ import br.com.certificateDelivery.utils.BaseEntity;
 @AttributeOverride(name="id", column=@Column(name="cod_logradouro"))
 public class LogradouroEntity extends BaseEntity<Long> {
 
-	@Column(name="tipoLogradouro", length=45, nullable=false)
+	@Column(name="tipologradouro", length=45, nullable=false)
 	private String tipoLogradouro;
 	
-	@Column(name="nomeLogradouro", length=255, nullable=false)
+	@Column(name="nomelogradouro", length=255, nullable=false)
 	private String nomeLogradouro;
 	
 	@Column(name="num_cep", length=11, nullable=false)
 	private int numCep;
 	
+	@Column(name="codbairro_fk", length=11, nullable=false)
+	private int bairro;
+	
 	public LogradouroEntity(){
 		
 	}
 
-	public LogradouroEntity(String tipoLogradouro, String nomeLogradouro, int numCep) {
+	public LogradouroEntity(String tipoLogradouro, String nomeLogradouro, int numCep, int bairro) {
 		super();
 		this.tipoLogradouro = tipoLogradouro;
 		this.nomeLogradouro = nomeLogradouro;
 		this.numCep = numCep;
+		this.bairro = bairro;
 	}
 
 	public String getTipoLogradouro() {
@@ -54,5 +58,13 @@ public class LogradouroEntity extends BaseEntity<Long> {
 
 	public void setNumCep(int numCep) {
 		this.numCep = numCep;
-	}	
-}*/
+	}
+
+	public int getBairro() {
+		return bairro;
+	}
+
+	public void setBairro(int bairro) {
+		this.bairro = bairro;
+	}
+}

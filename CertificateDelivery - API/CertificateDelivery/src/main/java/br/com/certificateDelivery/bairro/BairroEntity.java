@@ -1,4 +1,4 @@
-/*package br.com.certificateDelivery.bairro;
+package br.com.certificateDelivery.bairro;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
@@ -12,14 +12,19 @@ import br.com.certificateDelivery.utils.BaseEntity;
 @AttributeOverride(name="id", column=@Column(name="cod_bairro"))
 public class BairroEntity extends BaseEntity<Long> {
 	
-	@Column(name="nomeBairro", length=255, nullable=false)
+	private static final long serialVersionUID = 1L;
+
+	@Column(name="nomebairro", length=255, nullable=false)
 	private String nomeBairro;
+	
+	@Column(name="codcidade_fk", length=255, nullable=false)
+	private int cidade;
 	
 	public BairroEntity(){
 		
 	}
 
-	public BairroEntity(String nomeBairro) {
+	public BairroEntity(String nomeBairro, int cidade) {
 		super();
 		this.nomeBairro = nomeBairro;
 	}
@@ -31,4 +36,12 @@ public class BairroEntity extends BaseEntity<Long> {
 	public void setNomeBairro(String nomeBairro) {
 		this.nomeBairro = nomeBairro;
 	}
-}*/
+
+	public int getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(int cidade) {
+		this.cidade = cidade;
+	}
+}

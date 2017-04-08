@@ -10,7 +10,11 @@ angular.module('app', ['ngRoute'])
             })
             .when('/confUsuario', {
                 templateUrl: 'src/configuracoes/configuracoes.html',
-                controle: 'configCtrl'
+                controller: 'configCtrl'
+            })
+            .when('/meusEventos', {
+                templateUrl: 'src/meusEventos/meusEventos.html',
+                controller: 'meusEventosCtrl'
             })
        
     });

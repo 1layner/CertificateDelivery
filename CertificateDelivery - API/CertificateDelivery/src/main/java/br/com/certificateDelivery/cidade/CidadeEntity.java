@@ -1,4 +1,4 @@
-/*package br.com.certificateDelivery.cidade;
+package br.com.certificateDelivery.cidade;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.CascadeType;
@@ -15,13 +15,11 @@ import br.com.certificateDelivery.utils.BaseEntity;
 @AttributeOverride(name="id", column=@Column(name="cod_cidade"))
 public class CidadeEntity extends BaseEntity<Long> {
 	
-	@Column(name="nomeCidade", length=255, nullable=false)
+	@Column(name="nomecidade", length=255, nullable=true)
 	private String nomeCidade;
 	
-	//@ManyToOne(cascade=CascadeType.ALL)
-	//@JoinColumn(name="cidade")
+	@Column(name="codestado_fk", length=11, nullable=true)
 	private int codEstado;
-	
 	
 	public CidadeEntity(){
 		
@@ -48,4 +46,4 @@ public class CidadeEntity extends BaseEntity<Long> {
 	public void setCodEstado(int codEstado) {
 		this.codEstado = codEstado;
 	}
-}*/
+}
