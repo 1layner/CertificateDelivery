@@ -7,20 +7,56 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-        <a href="#/meusEventos" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Criar Evento</a>  
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-lg-offset-2 col-xs-8 col-sm-8 col-md-8 col-lg-8">
-        <div class="bs-component">
-            <div class="panel panel-default separandoEventos">
-                <div class="panel-footer bordas" ng-repeat="evento in eventos">
-                    {{ evento.nome }}
-                </div>
-            </div>
+<div class="well bs-component">
+    <div class="row">
+        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+            <a href="#/meusEventos" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Criar Evento</a>  
         </div>
     </div>
+    
+    <div class="row">
+        <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            
+            <div>
+                <table  id="example" class="display" ng-repeat="evento in eventos">
+                    <thead>
+                        <tr>
+                            <td>
+                                Nome do Evento
+                            </td>
+                            <td>
+                                Ação
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td width="600px">
+                                {{evento.nome}}
+                            </td>
+                            <td>
+                            |
+                            </td>
+                            <td>
+                                <button class="btn btn-default botao" type="submit"><span class="glyphicon glyphicon-list-alt"></span> Ver evento</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br /><br />
+            
+        </div>
+    </div>
+    
+    <!--<div class="row">
+        <div class="col-xs-offset-3 col-sm-offset-3 col-md-offset-3 col-xs-5 col-sm-5 col-md-5 col-lg-5">
+            <nav aria-label="...">
+                <ul class="pager">
+                    <li><a href="#">Anterior</a></li>
+                    <li><a href="#">Próximo</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>-->
 </div>

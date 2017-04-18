@@ -4,7 +4,7 @@ angular.module('app')
     $scope.evento={};
     $scope.eventos=[];
     
-    $http.get("http://localhost:8080/evento/listaTodos")
+    $http.get("http://localhost:8080/evento/1")
     .success(function(data){
         $scope.eventos = data;
         console.log("Listando todos os eventos");

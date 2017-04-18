@@ -1,11 +1,17 @@
 package br.com.certificateDelivery.evento;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import br.com.certificateDelivery.utils.BaseEntity;
 
@@ -241,4 +247,6 @@ public class EventoEntity extends BaseEntity<Long> {
 	public void setUsuario(int usuario) {
 		this.usuario = usuario;
 	}
+
+
 }

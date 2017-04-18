@@ -1,8 +1,15 @@
 .bordas{
-    border: 3px solid;
+    border: 5px;
+    border-style: solid;
+    //border-color: #6c94c4;
     border-color: black;
+    color: black;
 }
 
 .separandoEventos{
-    padding-top: 100px;
+    margin-top: 15px;
+}
+
+.botao{
+    border-style: solid;
 }

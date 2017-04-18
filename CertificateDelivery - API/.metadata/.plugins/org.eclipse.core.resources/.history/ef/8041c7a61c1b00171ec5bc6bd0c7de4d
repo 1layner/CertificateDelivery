@@ -1,5 +1,0 @@
-package br.com.certificateDelivery.evento;
-
-public interface EventoRepository {
-
-}

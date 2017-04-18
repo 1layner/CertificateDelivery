@@ -5,6 +5,9 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -51,4 +54,18 @@ public abstract class GenericService<T extends BaseEntity<ID>, ID extends Serial
 		//System.out.println("XXX");
 		return this.genericRepository.findOne(id);
 	}
-}
+	
+	@RequestMapping(value="/{page}/{size}", method=RequestMethod.GET)
+	public List<T> sortLista(
+			@PathVariable Integer page,
+			@PathVariable Integer size){
+		
+		if((page!=null) && (size!=null)){
+			PageRequest requestPage = new PageRequest(page, size, new Sort(Direction.DESC, "id"));
+			
+			return this.genericRepository.findAll(requestPage).getContent();
+		}
+		
+		return this.genericRepository.findAll(new Sort(Direction.DESC, "id"));
+	}
+} 

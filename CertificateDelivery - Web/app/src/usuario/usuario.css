@@ -1,5 +1,7 @@
 .tUsuario>p{
     font-size: 35px;
+    margin-top: 25px;
+    color: #6c94c4;
 }
 
 .separaCampos{
@@ -10,4 +12,8 @@
     width: 320px;
     height: 300px;
     margin-top: 80px;
+}
+
+.color{
+    color: #6c94c4;
 }
