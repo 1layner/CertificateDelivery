@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('configCtrl', function($scope, $http){
+    .controller('configCtrl', function($scope, $http, $location){
     
     iniciar();
     
@@ -29,18 +29,38 @@ angular.module('app')
       $http.post("http://localhost:8080/usuario/update", usuario)
       .success(function(data){
           if(usuario.id){
-              delete usuario.senha;
-              $scope.usuario.push(response.data);
+              $scope.usuario = data;
               console.log(data);     
+              
+              $scope.configUsuario.$setUntouched();
+              $scope.configUsuario.$setPristine();
+              
+              $scope.finalizaSucesso();
+              
+              $scope.finalizaModal();
               console.log("Usuario Alterado com Sucesso");
           }   
+           
       })
       .error(function(error){
          console.log("Erro ao atualizar usuario!!"); 
       }); 
     };
     
+    
+    $scope.finalizaSucesso = function(){
+        $scope.sucesso = true;
+    }
+    
+    $scope.finalizaModal = function(){
+        $scope.recurso = true;
+    }
+    
 
+        //$location.path('/cadUsuario');
+
+
+    
     function iniciar(){
        $scope.altone=true;
     };

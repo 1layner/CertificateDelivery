@@ -16,5 +16,9 @@ angular.module('app', ['ngRoute'])
                 templateUrl: 'src/meusEventos/meusEventos.html',
                 controller: 'meusEventosCtrl'
             })
+            .when('/eventosSeleciona', {
+                templateUrl : 'src/meusEventos/eventosSeleciona.html',
+                controller: 'meusEventosCtrl'
+            })
        
     });

@@ -19,16 +19,6 @@
             
             <div>
                 <table  id="example" class="display" ng-repeat="evento in eventos">
-                    <thead>
-                        <tr>
-                            <td>
-                                Nome do Evento
-                            </td>
-                            <td>
-                                Ação
-                            </td>
-                        </tr>
-                    </thead>
                     <tbody>
                         <tr>
                             <td width="600px">
@@ -38,7 +28,7 @@
                             |
                             </td>
                             <td>
-                                <button class="btn btn-default botao" type="submit"><span class="glyphicon glyphicon-list-alt"></span> Ver evento</button>
+                                <a href="#/eventosSeleciona" class="btn btn-default" ng-click="visualizar(evento)"><!--<button  botao" type="button" >--><span class="glyphicon glyphicon-list-alt"></span> Ver evento</a>
                             </td>
                         </tr>
                     </tbody>

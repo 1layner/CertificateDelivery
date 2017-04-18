@@ -1,0 +1,88 @@
+<br /><br /><br /><br />
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="well bs-component" ng-repeat = "evento in eventos">
+            
+            <div class="row">
+                <div class="col-lg-offset-1 col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <h1> {{evento.nome}} </h1> 
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <label for="dtaEvento" class="control-label"> Data do Evento: </label>
+                    <p> {{evento.dataEvento}} </p>
+                </div>
+                
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <label for="horaEvento" class="control-label"> Horário do Evento: </label>
+                    <p> {{evento.horaEvento}} </p>
+                </div>
+                
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <label for="duracaoEvento" class="control-label"> Duração do Evento: </label>
+                    <p> {{evento.duracaoEvento}} </p>
+                </div>
+            </div>
+            
+            <!--<div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <label for="dataLimite" class="control-label"> Data Limite para Inscrição: </label>
+                    <p> {{evento.dataLimite}} </p>
+                </div>
+            </div>-->
+            
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <label for="local" class="control-label"> Local do evento: </label>
+                    <p> {{evento.local}} </p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <label for="endereco" class="control-label"> Endereço: </label>
+                    <p> {{evento.tipoLogradouro}} {{evento.nomeLogradouro}} </p>
+                </div>
+                
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <label for="numero" class="control-label"> Número: </label>
+                    <p> {{evento.numero}} </p>
+                </div>
+                
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <label for="bairro" class="control-label"> Bairro: </label>
+                    <p> {{evento.bairro}} </p>
+                </div>
+                
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <label for="cidade" class="control-label"> Cidade: </label>
+                    <p> {{evento.cidade}} </p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <label for="contatoEvento" class="control-label"> Contato do evento: </label>
+                    <p> {{evento.contato}} </p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <label for="tipoEvento" class="control-label"> Categoria: </label>
+                    <p> {{evento.categoria}} </p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <label for="trajeEvento" class="control-label"> Observações extras: </label>
+                    <p> {{evento.observacoes}} </p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
