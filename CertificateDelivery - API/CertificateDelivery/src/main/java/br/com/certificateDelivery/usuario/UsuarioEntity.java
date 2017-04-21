@@ -18,6 +18,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import br.com.certificateDelivery.evento.EventoEntity;
 import br.com.certificateDelivery.permissao.PermissaoEntity;
 import br.com.certificateDelivery.utils.BaseEntity;
 
@@ -43,16 +44,21 @@ public class UsuarioEntity extends BaseEntity<Long> {
 	)
 	private List<PermissaoEntity> permissao;
 	
+	@JsonIgnore
+	@OneToMany(mappedBy="usuario", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	private List<EventoEntity> evento;
+	
 	public UsuarioEntity(){
 		
 	}
 
-	public UsuarioEntity(String nome, String email, String senha, List<PermissaoEntity> permissao) {
+	public UsuarioEntity(String nome, String email, String senha, List<PermissaoEntity> permissao, List<EventoEntity> evento) {
 		super();
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
 		this.permissao = permissao;
+		this.evento = evento;
 	}
 
 	public String getNome() {
@@ -85,5 +91,13 @@ public class UsuarioEntity extends BaseEntity<Long> {
 
 	public void setPermissao(List<PermissaoEntity> permissao) {
 		this.permissao = permissao;
+	}
+
+	public List<EventoEntity> getEvento() {
+		return evento;
+	}
+
+	public void setEvento(List<EventoEntity> evento) {
+		this.evento = evento;
 	}
 }

@@ -10,6 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import br.com.certificateDelivery.cidade.CidadeEntity;
 import br.com.certificateDelivery.utils.BaseEntity;
 
@@ -21,6 +23,9 @@ public class EstadoEntity extends BaseEntity<Long> {
 	@Column(name="siglaestado", length=2, nullable=false)
 	private String siglaEstado;
 
+	@JsonIgnore
+	@OneToMany(mappedBy="estado", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	private List<CidadeEntity> cidade;
 	
 	public EstadoEntity(){
 		
@@ -39,4 +44,11 @@ public class EstadoEntity extends BaseEntity<Long> {
 		this.siglaEstado = siglaEstado;
 	}
 
+	public List<CidadeEntity> getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(List<CidadeEntity> cidade) {
+		this.cidade = cidade;
+	}
 }

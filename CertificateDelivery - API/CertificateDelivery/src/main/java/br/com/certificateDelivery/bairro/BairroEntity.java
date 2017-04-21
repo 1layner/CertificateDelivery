@@ -1,10 +1,23 @@
 package br.com.certificateDelivery.bairro;
 
+import java.util.List;
+
 import javax.persistence.AttributeOverride;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ManyToAny;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import br.com.certificateDelivery.cidade.CidadeEntity;
+import br.com.certificateDelivery.logradouro.LogradouroEntity;
 import br.com.certificateDelivery.utils.BaseEntity;
 
 @Entity
@@ -17,8 +30,13 @@ public class BairroEntity extends BaseEntity<Long> {
 	@Column(name="nomebairro", length=255, nullable=false)
 	private String nomeBairro;
 	
-	@Column(name="codcidade_fk", length=255, nullable=false)
-	private int cidade;
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="codcidade_fk")
+	private CidadeEntity cidade;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="bairro", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	private List<LogradouroEntity> logradouro;
 	
 	public BairroEntity(){
 		
@@ -37,11 +55,20 @@ public class BairroEntity extends BaseEntity<Long> {
 		this.nomeBairro = nomeBairro;
 	}
 
-	public int getCidade() {
+	public CidadeEntity getCidade() {
 		return cidade;
 	}
 
-	public void setCidade(int cidade) {
+	public void setCidade(CidadeEntity cidade) {
 		this.cidade = cidade;
 	}
+
+	public List<LogradouroEntity> getLogradouro() {
+		return logradouro;
+	}
+
+	public void setLogradouro(List<LogradouroEntity> logradouro) {
+		this.logradouro = logradouro;
+	}
+
 }

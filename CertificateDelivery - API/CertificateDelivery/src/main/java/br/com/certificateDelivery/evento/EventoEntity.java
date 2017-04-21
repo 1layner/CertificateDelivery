@@ -4,15 +4,27 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.AttributeOverride;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.omg.PortableServer.LIFESPAN_POLICY_ID;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import br.com.certificateDelivery.dataHora.DataHoraEntity;
+import br.com.certificateDelivery.logradouro.LogradouroEntity;
+import br.com.certificateDelivery.usuario.UsuarioEntity;
+import br.com.certificateDelivery.usuario.UsuarioRepository;
 import br.com.certificateDelivery.utils.BaseEntity;
 
 @Entity
@@ -68,11 +80,17 @@ public class EventoEntity extends BaseEntity<Long> {
 	@Column(name="link_inscricao", length=255, nullable=false)
 	private String linkInscricao;
 	
-	@Column(name="codlogradouro_fk", length=11, nullable=false)
-	private int logradouro;
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="codlogradouro_fk")
+	private LogradouroEntity logradouro;
 	
-	@Column(name="usuario_fk", length=11, nullable=false)
-	private int usuario;
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="coddatahora_fk")
+	private DataHoraEntity dataHora;
+	
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="usufk")
+	private UsuarioEntity usuario;
 	
 	public EventoEntity(){
 		
@@ -81,8 +99,8 @@ public class EventoEntity extends BaseEntity<Long> {
 	public EventoEntity(String nome, String local, int contato, String categoria, boolean acompanhante,
 			String nomeUploadCertificado, String caminhoCertificado, String nomeUploadFolder, String caminhoFolder,
 			boolean tipoEvento, String observacoes, Date dataLimite, String corpoCertOuvinte,
-			String corpoCertOrganizador, String corpoCertPalestrante, String linkInscricao, int logradouro,
-			int usuario) {
+			String corpoCertOrganizador, String corpoCertPalestrante, String linkInscricao, LogradouroEntity logradouro,
+			UsuarioEntity usuario, DataHoraEntity dataHora) {
 		super();
 		this.nome = nome;
 		this.local = local;
@@ -102,6 +120,7 @@ public class EventoEntity extends BaseEntity<Long> {
 		this.linkInscricao = linkInscricao;
 		this.logradouro = logradouro;
 		this.usuario = usuario;
+		this.dataHora = dataHora;
 	}
 
 	public String getNome() {
@@ -232,21 +251,28 @@ public class EventoEntity extends BaseEntity<Long> {
 		this.linkInscricao = linkInscricao;
 	}
 
-	public int getLogradouro() {
+	public LogradouroEntity getLogradouro() {
 		return logradouro;
 	}
 
-	public void setLogradouro(int logradouro) {
+	public void setLogradouro(LogradouroEntity logradouro) {
 		this.logradouro = logradouro;
 	}
 
-	public int getUsuario() {
+	public UsuarioEntity getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(int usuario) {
+	public void setUsuario(UsuarioEntity usuario) {
 		this.usuario = usuario;
 	}
 
+	public DataHoraEntity getDataHora() {
+		return dataHora;
+	}
 
+	public void setDataHora(DataHoraEntity dataHora) {
+		this.dataHora = dataHora;
+	}
+	
 }

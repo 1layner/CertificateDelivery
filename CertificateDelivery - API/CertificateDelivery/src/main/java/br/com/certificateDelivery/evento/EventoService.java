@@ -5,6 +5,7 @@ import java.util.List;
 import javax.lang.model.element.PackageElement;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -33,17 +34,17 @@ public class EventoService extends GenericService<EventoEntity, Long> {
 	}
 	
 	@RequestMapping(value="/{id}/{page}/{size}", method=RequestMethod.GET)
-	public List<EventoEntity> sortLista(
+	public Page<EventoEntity> sortLista(
 			@PathVariable Integer id,
 			@PathVariable Integer page,
 			@PathVariable Integer size){
 	
-		if((id != null) && (page!=null) && (size!=null)){
+//		if((id != null) && (page!=null) && (size!=null)){
 			PageRequest requestPage = new PageRequest(page, size);
 			
 			return this.eventoRepository.findByUsuario(id, requestPage);
-		}
+//		}
 		
-		return this.eventoRepository.findAll();
+//		return this.eventoRepository.findAll();
 	}
 }

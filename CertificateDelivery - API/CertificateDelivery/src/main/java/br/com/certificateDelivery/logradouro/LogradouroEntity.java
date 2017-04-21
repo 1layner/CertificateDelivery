@@ -1,10 +1,23 @@
 package br.com.certificateDelivery.logradouro;
 
+import java.util.List;
+
 import javax.persistence.AttributeOverride;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.omg.PortableServer.LIFESPAN_POLICY_ID;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import br.com.certificateDelivery.bairro.BairroEntity;
+import br.com.certificateDelivery.evento.EventoEntity;
 import br.com.certificateDelivery.utils.BaseEntity;
 
 @Entity
@@ -21,19 +34,28 @@ public class LogradouroEntity extends BaseEntity<Long> {
 	@Column(name="num_cep", length=11, nullable=false)
 	private int numCep;
 	
-	@Column(name="codbairro_fk", length=11, nullable=false)
-	private int bairro;
+	//@Column(name="codbairro_fk", length=11, nullable=false)
+	//private int bairro;
+	
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="codbairro_fk")
+	private BairroEntity bairro;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="logradouro", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	private List<EventoEntity> evento;
 	
 	public LogradouroEntity(){
 		
 	}
 
-	public LogradouroEntity(String tipoLogradouro, String nomeLogradouro, int numCep, int bairro) {
+	public LogradouroEntity(String tipoLogradouro, String nomeLogradouro, int numCep, BairroEntity bairro, List<EventoEntity> evento) {
 		super();
 		this.tipoLogradouro = tipoLogradouro;
 		this.nomeLogradouro = nomeLogradouro;
 		this.numCep = numCep;
 		this.bairro = bairro;
+		this.evento = evento;
 	}
 
 	public String getTipoLogradouro() {
@@ -60,11 +82,20 @@ public class LogradouroEntity extends BaseEntity<Long> {
 		this.numCep = numCep;
 	}
 
-	public int getBairro() {
+	public BairroEntity getBairro() {
 		return bairro;
 	}
 
-	public void setBairro(int bairro) {
+	public void setBairro(BairroEntity bairro) {
 		this.bairro = bairro;
 	}
+
+	public List<EventoEntity> getEvento() {
+		return evento;
+	}
+
+	public void setEvento(List<EventoEntity> evento) {
+		this.evento = evento;
+	}
+
 }
