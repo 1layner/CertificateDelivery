@@ -11,9 +11,16 @@ import org.springframework.data.jpa.repository.Query;
 public interface EventoRepository extends JpaRepository<EventoEntity, Long> {
 
 	//@Query("select e from EventoEntity e where e.usuario=?1")
-	public Page<EventoEntity> findByUsuario(Integer id, Pageable requestPage);
+	public Page<EventoEntity> findByUsuarioId(Integer id, Pageable requestPage);
 	
-	public List<EventoEntity> findByUsuario(Integer id);
+	public List<EventoEntity> findByUsuarioId(Long id);
+	
+	/*@Query("select nome "
+			+ "from EventoEntity, UsuarioEntity, InscricaoEntity"
+			+ "where cod_usuario = usuario and"
+			+ "cod_evento = evento and"
+			+ "usuario = ?")*/
+	public List<EventoEntity> findByNome(Long id);
 	
 }
 

@@ -19,4 +19,6 @@ public class ServicePath {
 	public static final String DATA_HORA_EVENTO = "/datahoraevento";
 	
 	public static final String EVENTO_PATH = "/evento";
+	
+	public static final String INSCRICAO_PATH = "/inscricao";
 }

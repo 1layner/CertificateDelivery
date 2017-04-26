@@ -34,6 +34,9 @@ public class LogradouroEntity extends BaseEntity<Long> {
 	@Column(name="num_cep", length=11, nullable=false)
 	private int numCep;
 	
+	@Column(name="numero", length=11, nullable=false)
+	private int numero;
+	
 	//@Column(name="codbairro_fk", length=11, nullable=false)
 	//private int bairro;
 	
@@ -49,13 +52,14 @@ public class LogradouroEntity extends BaseEntity<Long> {
 		
 	}
 
-	public LogradouroEntity(String tipoLogradouro, String nomeLogradouro, int numCep, BairroEntity bairro, List<EventoEntity> evento) {
+	public LogradouroEntity(String tipoLogradouro, String nomeLogradouro, int numCep, BairroEntity bairro, List<EventoEntity> evento, int numero) {
 		super();
 		this.tipoLogradouro = tipoLogradouro;
 		this.nomeLogradouro = nomeLogradouro;
 		this.numCep = numCep;
 		this.bairro = bairro;
 		this.evento = evento;
+		this.numero = numero;
 	}
 
 	public String getTipoLogradouro() {
@@ -96,6 +100,14 @@ public class LogradouroEntity extends BaseEntity<Long> {
 
 	public void setEvento(List<EventoEntity> evento) {
 		this.evento = evento;
+	}
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
 	}
 
 }

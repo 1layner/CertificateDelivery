@@ -28,9 +28,9 @@ public class EventoService extends GenericService<EventoEntity, Long> {
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public List<EventoEntity> sortEvento(
-			@PathVariable Integer id){
+			@PathVariable Long id){
 	
-		return this.eventoRepository.findByUsuario(id);
+		return this.eventoRepository.findByUsuarioId(id);
 	}
 	
 	@RequestMapping(value="/{id}/{page}/{size}", method=RequestMethod.GET)
@@ -42,7 +42,7 @@ public class EventoService extends GenericService<EventoEntity, Long> {
 //		if((id != null) && (page!=null) && (size!=null)){
 			PageRequest requestPage = new PageRequest(page, size);
 			
-			return this.eventoRepository.findByUsuario(id, requestPage);
+			return this.eventoRepository.findByUsuarioId(id, requestPage);
 //		}
 		
 //		return this.eventoRepository.findAll();
