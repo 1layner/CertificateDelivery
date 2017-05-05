@@ -20,14 +20,14 @@ import br.com.certificateDelivery.utils.BaseEntity;
 
 @Entity
 @Table(name="tb_cidade")
-@AttributeOverride(name="id", column=@Column(name="cod_cidade"))
+@AttributeOverride(name="id", column=@Column(name="codcidade"))
 public class CidadeEntity extends BaseEntity<Long> {
 	
 	@Column(name="nomecidade", length=255, nullable=true)
 	private String nomeCidade;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="codestado_fk")
+	@JoinColumn(name="codestadofk")
 	private EstadoEntity estado;
 	
 	@JsonIgnore

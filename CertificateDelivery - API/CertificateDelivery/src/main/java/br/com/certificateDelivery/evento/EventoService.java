@@ -26,6 +26,7 @@ public class EventoService extends GenericService<EventoEntity, Long> {
 	@Autowired
 	private EventoRepository eventoRepository;
 	
+	//servico de meus eventos
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public List<EventoEntity> sortEvento(
 			@PathVariable Long id){
@@ -33,6 +34,7 @@ public class EventoService extends GenericService<EventoEntity, Long> {
 		return this.eventoRepository.findByUsuarioId(id);
 	}
 	
+	//servico de meus eventos paginado
 	@RequestMapping(value="/{id}/{page}/{size}", method=RequestMethod.GET)
 	public Page<EventoEntity> sortLista(
 			@PathVariable Integer id,
@@ -47,4 +49,11 @@ public class EventoService extends GenericService<EventoEntity, Long> {
 		
 //		return this.eventoRepository.findAll();
 	}
+	
+	//servico meus eventos inscritos
+	/*@RequestMapping(value="/listaInscritos/{id}", method=RequestMethod.GET)
+	public List<EventoEntity> listaEventosInscritos(@PathVariable Long id){
+		
+		return this.eventoRepository.retornaInscritos(id);
+	}*/
 }

@@ -22,7 +22,7 @@ import br.com.certificateDelivery.utils.BaseEntity;
 
 @Entity
 @Table(name="tb_bairro")
-@AttributeOverride(name="id", column=@Column(name="cod_bairro"))
+@AttributeOverride(name="id", column=@Column(name="codbairro"))
 public class BairroEntity extends BaseEntity<Long> {
 	
 	private static final long serialVersionUID = 1L;
@@ -31,7 +31,7 @@ public class BairroEntity extends BaseEntity<Long> {
 	private String nomeBairro;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="codcidade_fk")
+	@JoinColumn(name="codcidadefk")
 	private CidadeEntity cidade;
 	
 	@JsonIgnore

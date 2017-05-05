@@ -22,7 +22,7 @@ import br.com.certificateDelivery.utils.BaseEntity;
 
 @Entity
 @Table(name="tb_logradouro")
-@AttributeOverride(name="id", column=@Column(name="cod_logradouro"))
+@AttributeOverride(name="id", column=@Column(name="codlogradouro"))
 public class LogradouroEntity extends BaseEntity<Long> {
 
 	@Column(name="tipologradouro", length=45, nullable=false)
@@ -31,7 +31,7 @@ public class LogradouroEntity extends BaseEntity<Long> {
 	@Column(name="nomelogradouro", length=255, nullable=false)
 	private String nomeLogradouro;
 	
-	@Column(name="num_cep", length=11, nullable=false)
+	@Column(name="numcep", length=11, nullable=false)
 	private int numCep;
 	
 	@Column(name="numero", length=11, nullable=false)
@@ -41,7 +41,7 @@ public class LogradouroEntity extends BaseEntity<Long> {
 	//private int bairro;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="codbairro_fk")
+	@JoinColumn(name="codbairrofk")
 	private BairroEntity bairro;
 	
 	@JsonIgnore

@@ -1,0 +1,262 @@
+package br.com.certificateDelivery.evento;
+
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.AttributeOverride;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import br.com.certificateDelivery.logradouro.LogradouroEntity;
+import br.com.certificateDelivery.utils.BaseEntity;
+
+@Entity
+@Table(name="tb_evento")
+@AttributeOverride(name="id", column=@Column(name="cod_evento"))
+public class EventoEntity extends BaseEntity<Long> {
+	
+	@Column(name="nome", length=255, nullable=false)
+	private String nome;
+	
+	@Column(name="local", length=255, nullable=false)
+	private String local;
+	
+	@Column(name="contato", length=9, nullable=false)
+	private int contato;
+	
+	@Column(name="categoria", length=255, nullable=false)
+	private String categoria;
+	
+	@Column(name="acompanhante", length=1, nullable=false)
+	private boolean acompanhante;
+	
+	@Column(name="nome_upload_certificado", length=255, nullable=false)
+	private String nomeUploadCertificado;
+	
+	@Column(name="caminho_upload_certificado", length=255, nullable=false)
+	private String caminhoCertificado;
+	
+	@Column(name="nome_upload_folder", length=255, nullable=false)
+	private String nomeUploadFolder;
+	
+	@Column(name="caminho_upload_folder", length=255, nullable=false)
+	private String caminhoFolder;
+	
+	@Column(name="tipoevento", length=1, nullable=false)
+	private boolean tipoEvento;
+	
+	@Column(name="observacoes", length=1000, nullable=false)
+	private String observacoes;
+	
+	@Column(name="datalimite", nullable=false)
+	private Date dataLimite;
+	
+	@Column(name="corpo_cert_ouv", length=255, nullable=false)
+	private String corpoCertOuvinte;
+	
+	@Column(name="corpo_cert_org", length=255, nullable=false)
+	private String corpoCertOrganizador;
+	
+	@Column(name="corpo_cert_palest", length=255, nullable=false)
+	private String corpoCertPalestrante;
+	
+	@Column(name="link_inscricao", length=255, nullable=false)
+	private String linkInscricao;
+	
+	//@Column(name="codlogradouro_fk", length=11, nullable=false)
+	//private int logradourotwo;
+	
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="codlogradouro_fk")
+	private List<LogradouroEntity> logradouro;
+	
+	@Column(name="usuario_fk", length=11, nullable=false)
+	private int usuario;
+	
+	public EventoEntity(){
+		
+	}
+
+	public EventoEntity(String nome, String local, int contato, String categoria, boolean acompanhante,
+			String nomeUploadCertificado, String caminhoCertificado, String nomeUploadFolder, String caminhoFolder,
+			boolean tipoEvento, String observacoes, Date dataLimite, String corpoCertOuvinte,
+			String corpoCertOrganizador, String corpoCertPalestrante, String linkInscricao, List<LogradouroEntity> logradouro,
+			int usuario) {
+		super();
+		this.nome = nome;
+		this.local = local;
+		this.contato = contato;
+		this.categoria = categoria;
+		this.acompanhante = acompanhante;
+		this.nomeUploadCertificado = nomeUploadCertificado;
+		this.caminhoCertificado = caminhoCertificado;
+		this.nomeUploadFolder = nomeUploadFolder;
+		this.caminhoFolder = caminhoFolder;
+		this.tipoEvento = tipoEvento;
+		this.observacoes = observacoes;
+		this.dataLimite = dataLimite;
+		this.corpoCertOuvinte = corpoCertOuvinte;
+		this.corpoCertOrganizador = corpoCertOrganizador;
+		this.corpoCertPalestrante = corpoCertPalestrante;
+		this.linkInscricao = linkInscricao;
+		this.logradouro = logradouro;
+		this.usuario = usuario;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getLocal() {
+		return local;
+	}
+
+	public void setLocal(String local) {
+		this.local = local;
+	}
+
+	public int getContato() {
+		return contato;
+	}
+
+	public void setContato(int contato) {
+		this.contato = contato;
+	}
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+
+	public boolean isAcompanhante() {
+		return acompanhante;
+	}
+
+	public void setAcompanhante(boolean acompanhante) {
+		this.acompanhante = acompanhante;
+	}
+
+	public String getNomeUploadCertificado() {
+		return nomeUploadCertificado;
+	}
+
+	public void setNomeUploadCertificado(String nomeUploadCertificado) {
+		this.nomeUploadCertificado = nomeUploadCertificado;
+	}
+
+	public String getCaminhoCertificado() {
+		return caminhoCertificado;
+	}
+
+	public void setCaminhoCertificado(String caminhoCertificado) {
+		this.caminhoCertificado = caminhoCertificado;
+	}
+
+	public String getNomeUploadFolder() {
+		return nomeUploadFolder;
+	}
+
+	public void setNomeUploadFolder(String nomeUploadFolder) {
+		this.nomeUploadFolder = nomeUploadFolder;
+	}
+
+	public String getCaminhoFolder() {
+		return caminhoFolder;
+	}
+
+	public void setCaminhoFolder(String caminhoFolder) {
+		this.caminhoFolder = caminhoFolder;
+	}
+
+	public boolean isTipoEvento() {
+		return tipoEvento;
+	}
+
+	public void setTipoEvento(boolean tipoEvento) {
+		this.tipoEvento = tipoEvento;
+	}
+
+	public String getObservacoes() {
+		return observacoes;
+	}
+
+	public void setObservacoes(String observacoes) {
+		this.observacoes = observacoes;
+	}
+
+	public Date getDataLimite() {
+		return dataLimite;
+	}
+
+	public void setDataLimite(Date dataLimite) {
+		this.dataLimite = dataLimite;
+	}
+
+	public String getCorpoCertOuvinte() {
+		return corpoCertOuvinte;
+	}
+
+	public void setCorpoCertOuvinte(String corpoCertOuvinte) {
+		this.corpoCertOuvinte = corpoCertOuvinte;
+	}
+
+	public String getCorpoCertOrganizador() {
+		return corpoCertOrganizador;
+	}
+
+	public void setCorpoCertOrganizador(String corpoCertOrganizador) {
+		this.corpoCertOrganizador = corpoCertOrganizador;
+	}
+
+	public String getCorpoCertPalestrante() {
+		return corpoCertPalestrante;
+	}
+
+	public void setCorpoCertPalestrante(String corpoCertPalestrante) {
+		this.corpoCertPalestrante = corpoCertPalestrante;
+	}
+
+	public String getLinkInscricao() {
+		return linkInscricao;
+	}
+
+	public void setLinkInscricao(String linkInscricao) {
+		this.linkInscricao = linkInscricao;
+	}
+
+	public List<LogradouroEntity> getLogradouro() {
+		return logradouro;
+	}
+
+	public void setLogradouro(List<LogradouroEntity> logradouro) {
+		this.logradouro = logradouro;
+	}
+
+	public int getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(int usuario) {
+		this.usuario = usuario;
+	}
+
+
+}

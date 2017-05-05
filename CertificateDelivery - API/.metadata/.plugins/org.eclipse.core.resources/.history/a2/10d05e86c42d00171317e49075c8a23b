@@ -1,0 +1,27 @@
+package br.com.certificateDelivery.evento;
+
+import java.util.List;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.query.Procedure;
+
+public interface EventoRepository extends JpaRepository<EventoEntity, Long> {
+
+	//@Query("select e from EventoEntity e where e.usuario=?1")
+	public Page<EventoEntity> findByUsuarioId(Integer id, Pageable requestPage);
+	
+	public List<EventoEntity> findByUsuarioId(Long id);
+	
+	//@Query(value="select e.nome from tb_evento e inner join tb_inscricao i on i.evento = e.codevento  inner join tb_usuario u on u.codusuario = i.usuario where i.usuario = ?1", nativeQuery=true)
+	@Query(value="select e.nome from tb_inscricao i, tb_evento e where e.codevento = i.evento and e.codevento = ?", nativeQuery=true)
+	public List<EventoEntity> retornaInscritos(Long id);
+	//Fazer ela funcionar parte a parte;
+	
+	//@Procedure(procedureName = "retornaEventosInscritos")
+	//List<EventoEntity> retornaEventosInscritos(Long id);
+}
+

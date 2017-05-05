@@ -17,7 +17,7 @@ import br.com.certificateDelivery.utils.BaseEntity;
 
 @Entity
 @Table(name="tb_estado")
-@AttributeOverride(name="id", column=@Column(name="cod_estado"))
+@AttributeOverride(name="id", column=@Column(name="codestado"))
 public class EstadoEntity extends BaseEntity<Long> {
 	
 	@Column(name="siglaestado", length=2, nullable=false)

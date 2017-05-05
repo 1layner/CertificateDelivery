@@ -1,0 +1,47 @@
+<br /><br /><br /><br />
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="navbar navbar-default tUsuario ">
+            <p>Meus Eventos Inscritos</p>
+        </div>
+    </div>
+</div>
+
+<div class="well bs-component">
+    <div class="row">
+        <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            <div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                {{evento.nome}}
+                            </td>
+                            <td rowspan="3">
+                                Ver evento
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {{evento.local}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Local: {{evento.dataEvento}} Horário: {{evento.horarioEvento}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+  <!--<td>
+                            |
+                            </td>
+                            <td>
+                                <a href="#/eventoInscSeleciona" class="btn btn-default" ng-click="visualizar(evento)"><span class="glyphicon glyphicon-list-alt"></span> Ver evento</a>
+                            </td>-->

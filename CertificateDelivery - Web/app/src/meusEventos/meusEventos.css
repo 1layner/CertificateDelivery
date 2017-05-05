@@ -13,3 +13,21 @@
 .botao{
     border-style: solid;
 }
+
+.labels{
+    color: #6c94c4;
+    font-weight: bold;
+}
+
+.info{
+    color: #3d3d3d;
+}
+
+.infomol{
+    color: #3d3d3d;
+    font-size: 18px;
+}
+
+.altura{
+    height: 20px;
+}

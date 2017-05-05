@@ -1,4 +1,4 @@
-package br.com.certificateDelivery.inscricao;
+/*package br.com.certificateDelivery.inscricao;
 
 import java.util.Date;
 
@@ -13,7 +13,7 @@ import br.com.certificateDelivery.utils.BaseEntity;
 
 @Entity
 @Table(name="tb_inscricao")
-@AttributeOverride(name="id", column=@Column(name="cod_inscricao"))
+@AttributeOverride(name="id", column=@Column(name="codinscricao"))
 public class InscricaoEntity extends BaseEntity<Long> {
 	
 	@Column(name="presente", length=1, nullable=false)
@@ -23,10 +23,10 @@ public class InscricaoEntity extends BaseEntity<Long> {
 	private Date dataInscricao;
 	
 	@Column(name="usuario", length=11, nullable=false)
-	private int usuario;
+	private Long usuario;
 	
 	@Column(name="evento", length=11, nullable=false)
-	private int evento;
+	private Long evento;
 	
 	public InscricaoEntity(){
 		
@@ -48,19 +48,21 @@ public class InscricaoEntity extends BaseEntity<Long> {
 		this.dataInscricao = dataInscricao;
 	}
 
-	public int getUsuario() {
+	public Long getUsuario() {
 		return usuario;
 	}
 
-	public void setUsuario(int usuario) {
+	public void setUsuario(Long usuario) {
 		this.usuario = usuario;
 	}
 
-	public int getEvento() {
+	public Long getEvento() {
 		return evento;
 	}
 
-	public void setEvento(int evento) {
+	public void setEvento(Long evento) {
 		this.evento = evento;
 	}
-}
+
+	
+}*/

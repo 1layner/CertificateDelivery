@@ -24,7 +24,7 @@ import br.com.certificateDelivery.utils.BaseEntity;
 
 @Entity
 @Table(name = "tb_permissao")
-@AttributeOverride(name = "id", column = @Column(name = "cod_permissao"))
+@AttributeOverride(name = "id", column = @Column(name = "codpermissao"))
 public class PermissaoEntity extends BaseEntity<Long> {
 
 	@Column(name = "permissao", length = 255, nullable = false)

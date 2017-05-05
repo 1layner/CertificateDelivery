@@ -21,14 +21,15 @@
                 <table  id="example" class="display" ng-repeat="evento in eventos">
                     <tbody>
                         <tr>
-                            <td width="600px">
+                            <td width="600px" class="labels">
                                 {{evento.nome}}
                             </td>
                             <td>
                             |
                             </td>
                             <td>
-                                <a href="#/eventosSeleciona" class="btn btn-default" ng-click="visualizar(evento)"><!--<button  botao" type="button" >--><span class="glyphicon glyphicon-list-alt"></span> Ver evento</a>
+                                <a class="btn btn-default" ng-click="visualizar(evento)"><span class="glyphicon glyphicon-list-alt"></span> Ver evento</a>
+                                 <!--<button class="btn btn-default" ng-click="visualizar(evento)"><span class="glyphicon glyphicon-list-alt"></span> Ver evento</button>-->
                             </td>
                         </tr>
                     </tbody>

@@ -29,7 +29,7 @@ import br.com.certificateDelivery.utils.BaseEntity;
 
 @Entity
 @Table(name="tb_evento")
-@AttributeOverride(name="id", column=@Column(name="cod_evento"))
+@AttributeOverride(name="id", column=@Column(name="codevento"))
 public class EventoEntity extends BaseEntity<Long> {
 	
 	@Column(name="nome", length=255, nullable=false)
@@ -47,16 +47,16 @@ public class EventoEntity extends BaseEntity<Long> {
 	@Column(name="acompanhante", length=1, nullable=false)
 	private boolean acompanhante;
 	
-	@Column(name="nome_upload_certificado", length=255, nullable=false)
+	@Column(name="nomeuploadcertificado", length=255, nullable=false)
 	private String nomeUploadCertificado;
 	
-	@Column(name="caminho_upload_certificado", length=255, nullable=false)
+	@Column(name="caminhouploadcertificado", length=255, nullable=false)
 	private String caminhoCertificado;
 	
-	@Column(name="nome_upload_folder", length=255, nullable=false)
+	@Column(name="nomeuploadfolder", length=255, nullable=false)
 	private String nomeUploadFolder;
 	
-	@Column(name="caminho_upload_folder", length=255, nullable=false)
+	@Column(name="caminhouploadfolder", length=255, nullable=false)
 	private String caminhoFolder;
 	
 	@Column(name="tipoevento", length=1, nullable=false)
@@ -68,24 +68,24 @@ public class EventoEntity extends BaseEntity<Long> {
 	@Column(name="datalimite", nullable=false)
 	private Date dataLimite;
 	
-	@Column(name="corpo_cert_ouv", length=255, nullable=false)
+	@Column(name="corpocertouv", length=255, nullable=false)
 	private String corpoCertOuvinte;
 	
-	@Column(name="corpo_cert_org", length=255, nullable=false)
+	@Column(name="corpocertorg", length=255, nullable=false)
 	private String corpoCertOrganizador;
 	
-	@Column(name="corpo_cert_palest", length=255, nullable=false)
+	@Column(name="corpocertpalest", length=255, nullable=false)
 	private String corpoCertPalestrante;
 	
-	@Column(name="link_inscricao", length=255, nullable=false)
+	@Column(name="linkinscricao", length=255, nullable=false)
 	private String linkInscricao;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="codlogradouro_fk")
+	@JoinColumn(name="codlogradourofk")
 	private LogradouroEntity logradouro;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
-	@JoinColumn(name="coddatahora_fk")
+	@JoinColumn(name="coddatahorafk")
 	private DataHoraEntity dataHora;
 	
 	@ManyToOne(cascade=CascadeType.ALL)

@@ -1,9 +1,9 @@
 angular.module('app')
-    .controller('meusEventosCtrl', function($scope, $http){
+    .controller('meusEventosCtrl', function($scope, $http, $routeParams, $location){
     
     $scope.evento={};
     $scope.eventos=[];
-    $scope.eventosc = [];
+    
     
     $http.get("http://localhost:8080/evento/1")
     .success(function(data){
@@ -14,15 +14,11 @@ angular.module('app')
     .error(function(data){
         console.log("Erro ao listar eventos");
     });
-    
+
+    //metodo visualizar
     
     $scope.visualizar = function(evento){
-        $http.get("http://localhost:8080/evento/3")
-        .success(function(data){
-            $scope.eventosc = data;
-        })
-        .error(function(data){
-            console.log("Erro ao lista o evento");
-        })
+        $location.path("/eventosSeleciona/" +  evento.id)
     }
+    
 })

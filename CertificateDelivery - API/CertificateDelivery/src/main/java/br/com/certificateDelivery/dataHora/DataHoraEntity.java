@@ -19,16 +19,16 @@ import br.com.certificateDelivery.utils.BaseEntity;
 
 @Entity
 @Table(name="tb_data_hora")
-@AttributeOverride(name="id", column=@Column(name="cod_datahora"))
+@AttributeOverride(name="id", column=@Column(name="coddatahora"))
 public class DataHoraEntity extends BaseEntity<Long> {
 	
-	@Column(name="data_evento", nullable=false)
+	@Column(name="dataevento", nullable=false)
 	private Date dataEvento;
 	
-	@Column(name="hora_evento", nullable=false)
+	@Column(name="horaevento", nullable=false)
 	private Time horaEvento;
 	
-	@Column(name="duracao_evento", nullable=false)
+	@Column(name="duracao", nullable=false)
 	private int duracaoEvento;
 	
 	@JsonIgnore

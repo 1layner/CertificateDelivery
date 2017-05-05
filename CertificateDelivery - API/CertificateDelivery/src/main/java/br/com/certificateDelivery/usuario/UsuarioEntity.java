@@ -24,7 +24,7 @@ import br.com.certificateDelivery.utils.BaseEntity;
 
 @Entity
 @Table(name="tb_usuario")
-@AttributeOverride(name="id", column=@Column(name="cod_usuario"))
+@AttributeOverride(name="id", column=@Column(name="codusuario"))
 public class UsuarioEntity extends BaseEntity<Long> {
 
 	@Column(name="nome", length=255, nullable=false)
@@ -39,8 +39,8 @@ public class UsuarioEntity extends BaseEntity<Long> {
 	@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinTable(
 			name="tb_usuario_permissao",
-			joinColumns=@JoinColumn(name="fk_usuario"),
-			inverseJoinColumns=@JoinColumn(name="fk_permissao")
+			joinColumns=@JoinColumn(name="fkusuario"),
+			inverseJoinColumns=@JoinColumn(name="fkpermissao")
 	)
 	private List<PermissaoEntity> permissao;
 	

@@ -7,20 +7,23 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.query.Procedure;
 
 public interface EventoRepository extends JpaRepository<EventoEntity, Long> {
 
+	//Query de listagem paginada de eventos (meus eventos)
 	//@Query("select e from EventoEntity e where e.usuario=?1")
 	public Page<EventoEntity> findByUsuarioId(Integer id, Pageable requestPage);
 	
+	//Query de listagem de eventos (meus eventos)
 	public List<EventoEntity> findByUsuarioId(Long id);
 	
-	/*@Query("select nome "
-			+ "from EventoEntity, UsuarioEntity, InscricaoEntity"
-			+ "where cod_usuario = usuario and"
-			+ "cod_evento = evento and"
-			+ "usuario = ?")*/
-	public List<EventoEntity> findByNome(Long id);
+	//Query de listagem de eventos (meus eventos inscritos)
+	//@Query(value="SELECT E.NOME FROM TB_EVENTO E, TB_INSCRICAO I, TB_USUARIO U WHERE U.CODUSUARIO = I.USUARIO AND E.codevento = I.EVENTO AND U.CODUSUARIO = ?1", nativeQuery=true)
+	//public List<EventoEntity> retornaInscritos(Long id);
+	//Fazer ela funcionar parte a parte;
 	
+	//@Procedure(procedureName = "retornaEventosInscritos")
+	//List<EventoEntity> retornaEventosInscritos(Long id);
 }
 
