@@ -51,9 +51,9 @@ public class EventoService extends GenericService<EventoEntity, Long> {
 	}
 	
 	//servico meus eventos inscritos
-	/*@RequestMapping(value="/listaInscritos/{id}", method=RequestMethod.GET)
+	@RequestMapping(value="/listaInscritos/{id}", method=RequestMethod.GET)
 	public List<EventoEntity> listaEventosInscritos(@PathVariable Long id){
 		
 		return this.eventoRepository.retornaInscritos(id);
-	}*/
+	}
 }

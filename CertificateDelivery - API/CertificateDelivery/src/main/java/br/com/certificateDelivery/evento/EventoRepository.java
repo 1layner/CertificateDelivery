@@ -19,7 +19,8 @@ public interface EventoRepository extends JpaRepository<EventoEntity, Long> {
 	public List<EventoEntity> findByUsuarioId(Long id);
 	
 	//Query de listagem de eventos (meus eventos inscritos)
-	//@Query(value="SELECT E.NOME FROM TB_EVENTO E, TB_INSCRICAO I, TB_USUARIO U WHERE U.CODUSUARIO = I.USUARIO AND E.codevento = I.EVENTO AND U.CODUSUARIO = ?1", nativeQuery=true)
+	@Query(value="select e.nome, e.acompanhante, e.codevento, e.caminhouploadcertificado, e.caminhouploadfolder, e.categoria, e.contato, e.corpocertorg, e.corpocertouv, e.corpocertpalest, e.coddatahorafk, e.datalimite, e.linkinscricao, e.local, e.codlogradourofk, e.nomeuploadcertificado, e.nomeuploadfolder, e.observacoes, e.tipoevento, e.usufk from tb_evento e, tb_usuario u, tb_inscricao i, tb_usuario_inscricao ui, tb_data_hora dh where i.codinscricao = ui.inscricoesfk and u.codusuario = ui.usuariosfk and e.codevento = i.evento and dh.coddatahora = e.coddatahorafk and e.usufk = ?1", nativeQuery=true)
+	public List<EventoEntity> retornaInscritos(Long id); 
 	//public List<EventoEntity> retornaInscritos(Long id);
 	//Fazer ela funcionar parte a parte;
 	

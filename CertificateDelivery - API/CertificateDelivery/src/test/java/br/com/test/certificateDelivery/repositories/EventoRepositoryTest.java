@@ -35,12 +35,13 @@ public class EventoRepositoryTest {
 		LOGGER.info(evento);
 	}
 	
-	/*VERIFICAR ESTE METODO DEPOIS@Test
+	
+	@Test
 	public void retornaEvento(){
 		List<EventoEntity> eventos = this.eventoRepository.retornaInscritos(1L);
 		
 		LOGGER.info(eventos);
-	}*/
+	}
 	
 	/*@Test
 	public void testBuscar() {
