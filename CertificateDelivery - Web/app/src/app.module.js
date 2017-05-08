@@ -22,10 +22,14 @@ angular.module('app', ['ngRoute'])
             })
             .when('/meusEventosInsc', {
                 templateUrl : 'src/meusEventosInscritos/meusEventosInscritos.html',
-                controller : 'meusEventosInscritosCtrl'
+                controller : 'meusEventosInscCtrl'
             })
-            /*.when('/eventosInscSeleciona', {
-                templateUrl : 'src/meusEventosInscritos/meusEventosInscSeleciona.html',
-                //controller : 'meusEventosInscCrtl'
-            })*/
+            .when('/eventosInscSeleciona/:id', {
+                templateUrl : 'src/meusEventosInscritos/eventosInscSeleciona.html',
+                controller : 'eventosInscSelecionaCrtl'
+            })
+            .when('/cadEvento', {
+                templateUrl : 'src/evento/evento.html',
+                controller : 'eventoCtrl'
+            })
     });

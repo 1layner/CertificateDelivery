@@ -19,6 +19,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import br.com.certificateDelivery.dataHora.DataHoraEntity;
@@ -65,6 +66,7 @@ public class EventoEntity extends BaseEntity<Long> {
 	@Column(name="observacoes", length=1000, nullable=false)
 	private String observacoes;
 	
+	@JsonFormat(pattern="dd/MM/yyyy")
 	@Column(name="datalimite", nullable=false)
 	private Date dataLimite;
 	

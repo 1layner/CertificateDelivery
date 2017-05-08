@@ -1,0 +1,111 @@
+<br /><br /><br />
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="well bs-component" >
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <button type="button" class="btn btn-danger" ng-click="aparecerModal()" ng-hide="ap"><span class="glyphicon glyphicon-align-justify" aria-hidden="true" ng-click="aparecerModal()"></span></button>
+                    <button type="button" class="btn btn-danger" ng-click="fecharModal()" ng-hide="esc"><span class="glyphicon glyphicon-align-justify" aria-hidden="true" ng-click="aparecerModal()"></span></button>
+                </div>
+            </div>
+            
+            <div class="row" ng-show="modals">
+                <div class="row">
+                    <div class="col-xs-offset-1 col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <p class="labsModal">Status do Pagamento: Aprovado</p>
+                    </div>
+                    
+                    <div class="col-xs-offset-1 col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <p class="labsModal">Boleto: <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-save-file" aria-hidden="true"></span></button></p>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-offset-1 col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <p class="labsModal">Comprovante de Inscrição: <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-save-file" aria-hidden="true"></span></button></p>
+                    </div>
+                    
+                    <div class="col-xs-offset-1 col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <p class="labsModal">Certificado: <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-save-file" aria-hidden="true"></span></button></p>
+                    </div>  
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
+                    <h1 class="labels"> {{evento.nome}} </h1> 
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <label for="dtaEvento" class="control-label labels"> Data do Evento: </label>
+                    <p class="info"> {{evento.dataHora.dataEvento}} </p>
+                </div>
+                
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <label for="horaEvento" class="control-label labels"> Horário do Evento: </label>
+                    <p class="info"> {{evento.dataHora.horaEvento}} </p>
+                </div>
+                
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <label for="duracaoEvento" class="control-label labels"> Duração do Evento: </label>
+                    <p class="info"> {{evento.dataHora.duracaoEvento}} Horas </p>
+                </div>
+                
+                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <label for="tipoEvento" class="control-label labels"> Tipo de Evento: </label>
+                    <p class="info"> {{evento.tipoEvento}} </p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <label for="local" class="control-label labels"> Local do evento: </label>
+                    <p class="info"> {{evento.local}} </p>
+                </div>
+                
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <label for="contatoEvento" class="control-label labels"> Contato do evento: </label>
+                    <p class="info"> {{evento.contato}} </p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <label for="endereco" class="control-label labels"> Endereço: </label>
+                    <p class="info"> {{evento.logradouro.tipoLogradouro}} {{evento.logradouro.nomeLogradouro}} </p>
+                </div>
+                
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <label for="numero" class="control-label labels"> Número: </label>
+                    <p class="info"> {{evento.logradouro.numero}} </p>
+                </div>
+                
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <label for="bairro" class="control-label labels"> Bairro: </label>
+                    <p class="info"> {{evento.logradouro.bairro.nomeBairro}} </p>
+                </div>
+                
+                <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                    <label for="cidade" class="control-label labels"> Cidade: </label>
+                    <p class="info"> {{evento.logradouro.bairro.cidade.nomeCidade}} </p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <label for="trajeEvento" class="control-label labels"> Observações extras: </label>
+                    <p class="info"> {{evento.observacoes}} </p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-xs-offset-10 col-sm-offset-10 col-md-offset-10 col-lg-offset-10 col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <a href="#/meusEventosInsc"><button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"> Voltar </span></button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

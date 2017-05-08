@@ -12,6 +12,10 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.test.annotation.Timed;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import br.com.certificateDelivery.evento.EventoEntity;
@@ -22,9 +26,10 @@ import br.com.certificateDelivery.utils.BaseEntity;
 @AttributeOverride(name="id", column=@Column(name="coddatahora"))
 public class DataHoraEntity extends BaseEntity<Long> {
 	
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	@Column(name="dataevento", nullable=false)
 	private Date dataEvento;
-	
+
 	@Column(name="horaevento", nullable=false)
 	private Time horaEvento;
 	

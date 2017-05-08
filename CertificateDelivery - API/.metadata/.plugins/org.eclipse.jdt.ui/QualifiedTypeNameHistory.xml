@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.annotation.security.RunAs"/>
-<fullyQualifiedTypeName name="br.com.test.certificateDelivery.repositories.BairroRepositoryTest"/>
-<fullyQualifiedTypeName name="br.com.certificateDelivery.bairro.BairroRepository"/>
-<fullyQualifiedTypeName name="org.junit.runner.RunWith"/>
 <fullyQualifiedTypeName name="org.springframework.test.context.junit4.SpringJUnit4ClassRunner"/>
 <fullyQualifiedTypeName name="org.springframework.boot.test.SpringApplicationConfiguration"/>
 <fullyQualifiedTypeName name="br.com.test.certificateDelivery.utils.AppContextTest"/>
@@ -60,4 +56,8 @@
 <fullyQualifiedTypeName name="org.junit.Test"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="br.com.certificateDelivery.evento.EventoEntity"/>
+<fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonFormat"/>
+<fullyQualifiedTypeName name="org.springframework.format.annotation.DateTimeFormat"/>
+<fullyQualifiedTypeName name="org.springframework.format.annotation.DateTimeFormat.ISO"/>
+<fullyQualifiedTypeName name="org.springframework.test.annotation.Timed"/>
 </qualifiedTypeNameHistroy>

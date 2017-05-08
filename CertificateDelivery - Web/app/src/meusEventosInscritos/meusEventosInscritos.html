@@ -1,4 +1,4 @@
-<br /><br /><br /><br />
+<br /><br /><br />
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="navbar navbar-default tUsuario ">
@@ -11,24 +11,24 @@
     <div class="row">
         <div class="col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 col-xs-8 col-sm-8 col-md-8 col-lg-8">
             <div>
-                <table>
+                <table ng-repeat = "evento in eventos">
                     <tbody>
                         <tr>
-                            <td>
+                            <td width="600px" class="labelInsc">
                                 {{evento.nome}}
                             </td>
                             <td rowspan="3">
-                                Ver evento
+                                <a class="btn btn-default" ng-click="abrirEvento(evento)"><span class="glyphicon glyphicon-list-alt"></span> Ver evento</a>
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                {{evento.local}}
+                            <td class="labelInscInt">
+                                Local: {{evento.local}}
                             </td>
                         </tr>
                         <tr>
-                            <td>
-                                Local: {{evento.dataEvento}} Horário: {{evento.horarioEvento}}
+                            <td class="labelInscInt">
+                                Data: {{evento.dataHora.dataEvento}} Horário: {{evento.dataHora.horaEvento}} Hrs
                             </td>
                         </tr>
                     </tbody>
