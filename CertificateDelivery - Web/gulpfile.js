@@ -24,9 +24,17 @@ gulp.task('css', function(){
         .pipe(connect.reload());
 });
 
+/* Adição de dependência no ngQuill */
+
+gulp.task('ngQuill', function(){
+	gulp.src('./app/js/ngQuill/src/**/*.js')
+		.pipe(connect.reload());
+});
+
 gulp.task('watch', function(){
     gulp.watch(['./app/**/*.html'], ['html']);
     gulp.watch(['./app/**/*.js'], ['js']);
     gulp.watch(['./app/**/*.css'], ['css']);
+	gulp.watch(['./app/js/ngQuill/src/**/*.js'], ['js']);
 });
 gulp.task('default', ['connect', 'watch']);

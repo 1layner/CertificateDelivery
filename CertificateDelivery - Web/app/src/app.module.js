@@ -29,7 +29,7 @@ angular.module('app', ['ngRoute'])
                 controller : 'eventosInscSelecionaCrtl'
             })
             .when('/cadEvento', {
-                templateUrl : 'src/evento/evento.html',
-                controller : 'eventoCtrl'
+                templateUrl : 'src/evento/evento.html'
+                //controller : 'eventoCtrl'
             })
     });
