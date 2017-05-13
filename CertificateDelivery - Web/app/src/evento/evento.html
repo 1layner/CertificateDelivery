@@ -137,9 +137,10 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <label for="txtPart" class="control-label"> Digite o texto que irá aparecer no corpo do certificado do público PARTICIPANTE </label>
                             
-                            <ng-quill-editor name="description" ng-model="anime.description" toolbar="true" link-tooltip="true" image-tooltip="true" toolbar-entries="font size bold list bullet italic underline strike align color background link image" editor-required="true" error-class="input-error" theme="snow" required></ng-quill-editor>
+                            <ng-quill-editor name="description" ng-model="description" toolbar="true" link-tooltip="true" image-tooltip="true" toolbar-entries="font size bold list bullet italic underline strike align color background link image" editor-required="true" error-class="input-error" theme="snow"></ng-quill-editor>
+                            
+                            <ng-quill-editor ng-model="message" toolbar="true" link-tooltip="true" image-tooltip="true" toolbar-entries="font size bold list bullet italic underline strike align color background link image" editor-required="true" required="" error-class="input-error"></ng-quill-editor>
                         </div>
-                        
                     </div>
                     
                     <div class="row">
@@ -153,7 +154,6 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <label for="txtPart" class="control-label"> Digite o texto que irá aparecer no corpo do certificado do público PALESTRANTE </label>
                         </div>
-                        
                     </div>
                     
                 </section>

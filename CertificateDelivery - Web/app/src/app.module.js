@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute'])
+angular.module('app', ['ngRoute', 'ngQuill',, 'ngResource', 'ngSanitize'])
     .config(function($routeProvider){
        $routeProvider.
             when('/', {
@@ -29,7 +29,7 @@ angular.module('app', ['ngRoute'])
                 controller : 'eventosInscSelecionaCrtl'
             })
             .when('/cadEvento', {
-                templateUrl : 'src/evento/evento.html'
-                //controller : 'eventoCtrl'
+                templateUrl : 'src/evento/evento.html',
+                controller : 'eventoCtrl'
             })
     });
