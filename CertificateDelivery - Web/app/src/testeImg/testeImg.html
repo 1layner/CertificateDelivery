@@ -1,0 +1,41 @@
+<br /><br /><br />
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="navbar navbar-default tUsuario ">
+            <p>Tela de Teste de Salvamento de Imagem no Banco</p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="well bs-component">
+            <form class="forImg" ng-submit="cadastrarImg(testeImg)" name="cadImg" novalidate>
+                
+                    <div class="row">
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                            <label for="nome" class="control-label"> Nome do Evento: </label>
+                            <input type="text" class="form-control" placeholder="Nome do Evento" ng-model="testeImg.nome"/> 
+                        </div>
+                    </div>
+                
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <label for="uploadImg" class="control-label"> Faça o upload do layout do seu certificado. </label>
+                            <input type="file" id="imagem" type="file" class="file-loading" parser="confImagem" base-sixty-four-input ng-model="testeImg.codimgfk"/>
+                        </div>
+                    </div>
+                        
+                    <div class="row">
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                            <button type="submit" class="btn btn-success">
+                                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Salvar
+                            </button>
+                        </div> 
+                    </div>
+                
+            </form>
+        </div>
+    </div>
+</div>

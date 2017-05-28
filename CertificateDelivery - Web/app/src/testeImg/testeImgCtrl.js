@@ -1,11 +1,21 @@
 angular.module('app')
-    .controller('eventoCtrl', function($scope, $http, $q){
+    .controller('testeImgCtrl', function($scope, $http, $q){
     
-    console.log("Chamou o controller evento");
+    console.log("Chamou o controller de testeImg");
     
-    $scope.evento={};
+    $scope.testeImg={};
     
-    $scope.configuracaoImagens = function(file, base64){
+    $scope.cadastrarImg = function(testeImg){
+        $http.post("http://localhost:8080/teste/save", testeImg)
+        .success(function(data){
+            $scope.testeImg = data;
+        })
+        .error(function(error){
+            console.log("Erro ao inserir evento, tente novamente!!!");
+        })
+    };
+    
+    $scope.confImagem = function(file, base64){
         var deferred = $q.defer();
         var img = document.createElement('img');
         
@@ -19,23 +29,13 @@ angular.module('app')
             ctx.drawImage(this, 0, 0, 100, 100);
             
             var dataURI = canvas.toDataURL(1.0);
-            base64.base64 = dataURI.replace('data:image/png;base64', '');
+            base64.base64 = dataURI.replace('data:image/png;base64,', '');
             deferred.resolve(base64);
             
             $scope.$apply();
         };
         img.src = 'data:' + base64.filetype + ';base64,' + base64.base64;
         return deferred.promise;
-    };
-    
-    $scope.cadastrarEvento = function(evento){
-        $http.post("http://localhost:8080/evento/salvar", evento)
-        .success(function(data){
-            $scope.evento = data;
-        })
-        .error(function(error){
-            console.log("Erro ao inserir evento, tente novamente!!!");
-        })
-    };
+    }
     
 });

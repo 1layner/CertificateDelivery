@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute', 'ngQuill',, 'ngResource', 'ngSanitize'])
+angular.module('app', ['ngRoute', 'ngQuill',, 'ngResource', 'ngSanitize', 'naif.base64'])
     .config(function($routeProvider){
        $routeProvider.
             when('/', {
@@ -31,5 +31,9 @@ angular.module('app', ['ngRoute', 'ngQuill',, 'ngResource', 'ngSanitize'])
             .when('/cadEvento', {
                 templateUrl : 'src/evento/evento.html',
                 controller : 'eventoCtrl'
+            })
+            .when('/logout', {
+                templateUrl : 'src/testeImg/testeImg.html',
+                controller : 'testeImgCtrl'
             })
     });
