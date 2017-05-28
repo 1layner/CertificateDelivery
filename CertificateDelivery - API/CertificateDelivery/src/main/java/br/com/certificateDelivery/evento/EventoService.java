@@ -1,5 +1,10 @@
 package br.com.certificateDelivery.evento;
 
+import java.io.IOException;
+import java.nio.file.FileAlreadyExistsException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import javax.lang.model.element.PackageElement;
@@ -11,10 +16,16 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import br.com.certificateDelivery.utils.GenericService;
 import br.com.certificateDelivery.utils.ServicePath;
@@ -22,6 +33,8 @@ import br.com.certificateDelivery.utils.ServicePath;
 @RestController
 @RequestMapping(path=ServicePath.EVENTO_PATH)
 public class EventoService extends GenericService<EventoEntity, Long> {
+	
+	private Path rootDir;
 	
 	@Autowired
 	private EventoRepository eventoRepository;
@@ -56,4 +69,11 @@ public class EventoService extends GenericService<EventoEntity, Long> {
 		
 		return this.eventoRepository.retornaInscritos(id);
 	}
+	
+	/*@Autowired
+	public EventoService(EventoRepository eventoRepository){
+		//this.eventoRepository = eventoRepository;
+		this.rootDir = Paths.get("/CertificateDelivery/CertificateDelivery - Web/app/imgCert");
+	}*/
+
 }

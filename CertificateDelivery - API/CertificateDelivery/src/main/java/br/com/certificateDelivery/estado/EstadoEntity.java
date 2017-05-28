@@ -20,7 +20,7 @@ import br.com.certificateDelivery.utils.BaseEntity;
 @AttributeOverride(name="id", column=@Column(name="codestado"))
 public class EstadoEntity extends BaseEntity<Long> {
 	
-	@Column(name="siglaestado", length=2, nullable=false)
+	@Column(name="siglaestado", length=2, nullable=true)
 	private String siglaEstado;
 
 	@JsonIgnore

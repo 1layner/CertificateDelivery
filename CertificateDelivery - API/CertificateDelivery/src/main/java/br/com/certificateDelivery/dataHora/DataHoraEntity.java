@@ -27,13 +27,13 @@ import br.com.certificateDelivery.utils.BaseEntity;
 public class DataHoraEntity extends BaseEntity<Long> {
 	
 	@JsonFormat(pattern = "dd/MM/yyyy")
-	@Column(name="dataevento", nullable=false)
+	@Column(name="dataevento", nullable=true)
 	private Date dataEvento;
 
-	@Column(name="horaevento", nullable=false)
+	@Column(name="horaevento", nullable=true)
 	private Time horaEvento;
 	
-	@Column(name="duracao", nullable=false)
+	@Column(name="duracao", nullable=true)
 	private int duracaoEvento;
 	
 	@JsonIgnore

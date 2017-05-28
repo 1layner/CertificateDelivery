@@ -21,4 +21,8 @@ public class ServicePath {
 	public static final String EVENTO_PATH = "/evento";
 	
 	public static final String INSCRICAO_PATH = "/inscricao";
+	
+	public static final String IMAGE_PATH = "/image";
+	
+	public static final String TESTE_PATH = "/teste";
 }

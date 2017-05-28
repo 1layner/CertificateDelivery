@@ -25,16 +25,16 @@ import br.com.certificateDelivery.utils.BaseEntity;
 @AttributeOverride(name="id", column=@Column(name="codlogradouro"))
 public class LogradouroEntity extends BaseEntity<Long> {
 
-	@Column(name="tipologradouro", length=45, nullable=false)
+	@Column(name="tipologradouro", length=45, nullable=true)
 	private String tipoLogradouro;
 	
-	@Column(name="nomelogradouro", length=255, nullable=false)
+	@Column(name="nomelogradouro", length=255, nullable=true)
 	private String nomeLogradouro;
 	
-	@Column(name="numcep", length=11, nullable=false)
+	@Column(name="numcep", length=11, nullable=true)
 	private int numCep;
 	
-	@Column(name="numero", length=11, nullable=false)
+	@Column(name="numero", length=11, nullable=true)
 	private int numero;
 	
 	//@Column(name="codbairro_fk", length=11, nullable=false)

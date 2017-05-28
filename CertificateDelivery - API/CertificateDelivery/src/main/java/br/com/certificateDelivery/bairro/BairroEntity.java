@@ -27,7 +27,7 @@ public class BairroEntity extends BaseEntity<Long> {
 	
 	private static final long serialVersionUID = 1L;
 
-	@Column(name="nomebairro", length=255, nullable=false)
+	@Column(name="nomebairro", length=255, nullable=true)
 	private String nomeBairro;
 	
 	@ManyToOne(cascade=CascadeType.ALL)

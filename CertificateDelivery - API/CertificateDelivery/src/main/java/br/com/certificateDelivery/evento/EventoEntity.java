@@ -11,6 +11,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.omg.PortableServer.LIFESPAN_POLICY_ID;
@@ -23,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import br.com.certificateDelivery.dataHora.DataHoraEntity;
+import br.com.certificateDelivery.image.ImageEntity;
 import br.com.certificateDelivery.logradouro.LogradouroEntity;
 import br.com.certificateDelivery.usuario.UsuarioEntity;
 import br.com.certificateDelivery.usuario.UsuarioRepository;
@@ -33,53 +35,41 @@ import br.com.certificateDelivery.utils.BaseEntity;
 @AttributeOverride(name="id", column=@Column(name="codevento"))
 public class EventoEntity extends BaseEntity<Long> {
 	
-	@Column(name="nome", length=255, nullable=false)
+	@Column(name="nome", length=255, nullable=true)
 	private String nome;
 	
-	@Column(name="local", length=255, nullable=false)
+	@Column(name="local", length=255, nullable=true)
 	private String local;
 	
-	@Column(name="contato", length=9, nullable=false)
+	@Column(name="contato", length=9, nullable=true)
 	private int contato;
 	
-	@Column(name="categoria", length=255, nullable=false)
+	@Column(name="categoria", length=255, nullable=true)
 	private String categoria;
 	
-	@Column(name="acompanhante", length=1, nullable=false)
+	@Column(name="acompanhante", length=1, nullable=true)
 	private boolean acompanhante;
 	
-	@Column(name="nomeuploadcertificado", length=255, nullable=false)
-	private String nomeUploadCertificado;
-	
-	@Column(name="caminhouploadcertificado", length=255, nullable=false)
-	private String caminhoCertificado;
-	
-	@Column(name="nomeuploadfolder", length=255, nullable=false)
-	private String nomeUploadFolder;
-	
-	@Column(name="caminhouploadfolder", length=255, nullable=false)
-	private String caminhoFolder;
-	
-	@Column(name="tipoevento", length=1, nullable=false)
+	@Column(name="tipoevento", length=1, nullable=true)
 	private boolean tipoEvento;
 	
-	@Column(name="observacoes", length=1000, nullable=false)
+	@Column(name="observacoes", length=1000, nullable=true)
 	private String observacoes;
 	
 	@JsonFormat(pattern="dd/MM/yyyy")
-	@Column(name="datalimite", nullable=false)
+	@Column(name="datalimite", nullable=true)
 	private Date dataLimite;
 	
-	@Column(name="corpocertouv", length=255, nullable=false)
+	@Column(name="corpocertouv", length=255, nullable=true)
 	private String corpoCertOuvinte;
 	
-	@Column(name="corpocertorg", length=255, nullable=false)
+	@Column(name="corpocertorg", length=255, nullable=true)
 	private String corpoCertOrganizador;
 	
-	@Column(name="corpocertpalest", length=255, nullable=false)
+	@Column(name="corpocertpalest", length=255, nullable=true)
 	private String corpoCertPalestrante;
 	
-	@Column(name="linkinscricao", length=255, nullable=false)
+	@Column(name="linkinscricao", length=255, nullable=true	)
 	private String linkInscricao;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
@@ -94,12 +84,15 @@ public class EventoEntity extends BaseEntity<Long> {
 	@JoinColumn(name="usufk")
 	private UsuarioEntity usuario;
 	
+	@OneToOne
+	@JoinColumn(name="codimgcertificado", nullable=true)
+	private ImageEntity codimgfk;
+	
 	public EventoEntity(){
 		
 	}
 
 	public EventoEntity(String nome, String local, int contato, String categoria, boolean acompanhante,
-			String nomeUploadCertificado, String caminhoCertificado, String nomeUploadFolder, String caminhoFolder,
 			boolean tipoEvento, String observacoes, Date dataLimite, String corpoCertOuvinte,
 			String corpoCertOrganizador, String corpoCertPalestrante, String linkInscricao, LogradouroEntity logradouro,
 			UsuarioEntity usuario, DataHoraEntity dataHora) {
@@ -109,10 +102,6 @@ public class EventoEntity extends BaseEntity<Long> {
 		this.contato = contato;
 		this.categoria = categoria;
 		this.acompanhante = acompanhante;
-		this.nomeUploadCertificado = nomeUploadCertificado;
-		this.caminhoCertificado = caminhoCertificado;
-		this.nomeUploadFolder = nomeUploadFolder;
-		this.caminhoFolder = caminhoFolder;
 		this.tipoEvento = tipoEvento;
 		this.observacoes = observacoes;
 		this.dataLimite = dataLimite;
@@ -163,38 +152,6 @@ public class EventoEntity extends BaseEntity<Long> {
 
 	public void setAcompanhante(boolean acompanhante) {
 		this.acompanhante = acompanhante;
-	}
-
-	public String getNomeUploadCertificado() {
-		return nomeUploadCertificado;
-	}
-
-	public void setNomeUploadCertificado(String nomeUploadCertificado) {
-		this.nomeUploadCertificado = nomeUploadCertificado;
-	}
-
-	public String getCaminhoCertificado() {
-		return caminhoCertificado;
-	}
-
-	public void setCaminhoCertificado(String caminhoCertificado) {
-		this.caminhoCertificado = caminhoCertificado;
-	}
-
-	public String getNomeUploadFolder() {
-		return nomeUploadFolder;
-	}
-
-	public void setNomeUploadFolder(String nomeUploadFolder) {
-		this.nomeUploadFolder = nomeUploadFolder;
-	}
-
-	public String getCaminhoFolder() {
-		return caminhoFolder;
-	}
-
-	public void setCaminhoFolder(String caminhoFolder) {
-		this.caminhoFolder = caminhoFolder;
 	}
 
 	public boolean isTipoEvento() {

@@ -19,6 +19,7 @@ public class UsuarioService extends GenericService<UsuarioEntity, Long> {
 	@Autowired
 	private PermissaoRepository permissaoRepository;
 	
+
 	@JsonCreator
 	@JsonIgnore
 	@Override
@@ -32,5 +33,5 @@ public class UsuarioService extends GenericService<UsuarioEntity, Long> {
 		}
 		
 		return super.insercao(entityObject);
-	}	
+	}
 }
