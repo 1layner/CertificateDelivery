@@ -9,7 +9,7 @@ angular.module('app')
     $scope.ap = false;
     $scope.esc = true;
     
-    $http.get("http://localhost:8080/evento/listaUnico/" + id)
+    $http.get("http://localhost:8080/private/evento/listaUnico/" + id)
     .success(function(data){
         $scope.eventos = data;    
     })

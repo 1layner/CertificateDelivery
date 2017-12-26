@@ -16,6 +16,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 tUsuario">
                         <p> Informações Gerais </p>
                     </div>
+                
                     
                     <div class="row">
                         <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
@@ -27,12 +28,12 @@
                     <div class="row">
                         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                             <label for="dataEvento" class="control-label"> Data do Evento: </label>
-                            <input type="date" class="form-control" placeholder="Data do Evento" ng-model="evento.dataHora.dataEvento" /> 
+                            <input type="text" class="form-control" placeholder="Data do Evento" ng-model="evento.dataHora.dataEvento" />
                         </div>
                         
                         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                             <label for="horaEvento" class="control-label"> Horário: </label>
-                            <input type="time" class="form-control" placeholder="Horário" ng-model="evento.dataHora.horaEvento"/> 
+                            <input type="text" class="form-control" placeholder="Horário" ng-model="evento.dataHora.horaEvento"/> 
                         </div>
                         
                         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
@@ -62,8 +63,8 @@
                         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                             <label for="acompanhateEvento" class="control-label"> Aceitará Acompanhante? </label>
                             <select class="form-control" name="acompanhante" ng-model="evento.acompanhante">
-                                <option value="1"> Sim </option>
-                                <option value="0"> Não </option>
+                                <option value="true"> Sim </option>
+                                <option value="false"> Não </option>
                             </select>
                         </div>
                     </div>
@@ -78,18 +79,10 @@
                     <div class="row">
                         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
                             <label for="dtaLimiteEvento" class="control-label"> Data Limite do Evento: </label>
-                            <input type="date" class="form-control" placeholder="Data Limite do Evento" ng-model="evento.dataLimite"/>
+                            <input type="text" class="form-control" placeholder="Data Limite do Evento" ng-model="evento.dataLimite"/>
                         </div>
                     </div>
 
-                    <!--<div class="row">
-                        <div class="col-lg-offset-6  col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                            <a href="#/cadEvento#tipEvento" data-nav-section="tipEvento" type="button"  class="btn btn-success"> Próximo <span class="glyphicon glyphicon-chevron-right"> </span>  </a>
-                        </div>
-                    </div>
-                </section>
-                
-                <section data-section="tipEvento" id="tipEvento">-->
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 tUsuario">
                             <p> Tipo de Evento </p>
@@ -105,23 +98,13 @@
                     
                     <div class="row">
                         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="0" ng-model="evento.tipoEvento" checked> Evento Gratuito
+                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="false" ng-model="evento.tipoEvento" checked> Evento Gratuito
                         </div>
                         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="1" ng-model="evento.tipoEvento" checked> Evento Pago
+                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="true" ng-model="evento.tipoEvento" checked> Evento Pago
                         </div>
                     </div>
-                    
-                    <!--<div class="row">
-                        <div class="col-lg-offset-6  col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                            <a href="#/cadEvento#infoGerais" type="button" class="btn btn-success"><span class="glyphicon glyphicon-chevron-left"> </span> Voltar</a>
-                            <a href="#/cadEvento#bodyCert" data-nav-section="tipEvento" type="button"  class="btn btn-success"> Próximo <span class="glyphicon glyphicon-chevron-right"> </span>  </a>
-                        </div>
-                    </div>
-                    
-                </section>
                 
-                <section data-section="bodyCert" id="bodyCert">-->
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 tUsuario">
                             <p> Montagem do Certificado </p>
@@ -132,24 +115,16 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <label for="uploadImg" class="control-label"> Faça o upload do layout do seu certificado. </label>
                             <!--<input type="file" name="file" value="Upload" id="file" enctype="multipart/form-data" multiple>-->
-                            <input type="file" id="imagem" type="file" class="file-loading" parser="configuracaoImagens" base-sixty-four-input ng-model="evento.imagemCertificado"/>
+                            <!--<input type="file" id="imagem" type="file" class="file-loading" parser="configuracaoImagens" base-sixty-four-input ng-model="evento.imagemCertificado"/>-->
+                            <input type="file" id="imagem" type="file" class="file-loading" parser="configuracaoImagens" base-sixty-four-input ng-model="evento.codimgfk"/>
                         </div>
-                        
-                        <!--<input type="file" id="imagem" type="file" class="file-loading" parser="resizeImage" base-sixty-four-input ng-model="usuario.imagemPerfil">->
                     </div>
                     
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <label for="txtPart" class="control-label"> Digite o texto que irá aparecer no corpo do certificado do público PARTICIPANTE </label>
+                            <label for="txtPart" class="control-label"> Digite o texto que irá aparecer no corpo do certificado do público ORGANIZADOR </label>
                         </div>
-                            
-                            <!--<ng-quill-editor name="description" ng-model="description" toolbar="true" link-tooltip="true" image-tooltip="true" toolbar-entries="font size bold list bullet italic underline strike align color background link image" editor-required="true" error-class="input-error" theme="snow"></ng-quill-editor>
-                            
-                            <!--<ng-quill-editor ng-model="message" toolbar="true" link-tooltip="true" image-tooltip="true" toolbar-entries="font size bold list bullet italic underline strike align color background link image" editor-required="true" required="" error-class="input-error"></ng-quill-editor>-->
-                       
-                    </div>
-                    
-                    <div class="row">
+                        
                         <div class="col-xs-offset-1 col-xs-7 col-sm-7 col-md-7 col-lg-7 tagsDivs">
                             <ng-quill-editor name="description" ng-model="evento.corpoCertOuvinte" toolbar="true" link-tooltip="true" image-tooltip="true" toolbar-entries="font size bold list bullet italic underline strike align color background link image" editor-required="true" error-class="input-error" theme="snow"></ng-quill-editor>
                         </div>
@@ -158,7 +133,7 @@
                     
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <label for="txtPart" class="control-label"> Digite o texto que irá aparecer no corpo do certificado do público ORGANIZADOR </label>
+                            <label for="txtPart" class="control-label"> Digite o texto que irá aparecer no corpo do certificado do público OUVINTE </label>
                         </div>
                         
                     </div>
@@ -182,25 +157,21 @@
                         </div>
                         
                     </div>
+                
+                    <div class="row" ng-init="gerandoRandom()">
+                        <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                            <!--<input type="text" class="form-control" name="linkInscricao" ng-model="evento.linkInscricao" ng-bind="linkInscricao" disabled/>-->
+                            <h1 ng-model="evento.linkInscricao" ng-bind="linkInscricao"></h1>
+                        </div>
+                    </div>
                     
                     <div class="row">
-                        <!--<div class="col-xs-offset-4 col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                            <a href="#/cadEvento#tipEvento" type="button" class="btn btn-success"><span class="glyphicon glyphicon-chevron-left"> </span> Voltar</a>
-                        </div>
-                        
-                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                            <button type="reset" class="btn btn-danger">
-                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Cancelar
-                            </button>
-                        </div>-->
-                        
                         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                             <button type="submit" class="btn btn-success">
                                 <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Salvar
                             </button>
                         </div> 
                     </div>
-                <!--</section>-->
             </form>
         </div>
     </div>

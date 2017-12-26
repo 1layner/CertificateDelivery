@@ -3,15 +3,17 @@ angular.module('app')
   
     $scope.evento={};
     $scope.eventos=[];
+
+
     
     var id = $routeParams.id;
     
     $scope.ap = false;
     $scope.esc = true;
     
-    $http.get("http://localhost:8080/evento/listaUnico/" + id)
+    $http.get("http://localhost:8080/private/evento/listaUnico/" + id)
     .success(function(data){
-        $scope.evento = data;    
+        $scope.evento = data;
     })
     .error(function(data){
         console.log("Erro ao lista o evento");

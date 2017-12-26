@@ -1,0 +1,50 @@
+<!--<br /><br /><br />-->
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="navbar navbar-default tUsuario ">
+            <p>Login</p>
+        </div>
+    </div>
+</div>
+
+<div class="row well bs-component">
+    <div class="col-xs-offset-3 col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div class="well bs-component">
+            <form ng-submit="login(email, senha)">
+                <div class="row">
+                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 separaCampos">
+                        <label for="usuario" class="control-label color">Usuário:</label>
+                        <input name="email" ng-model="email" type="email" placeholder="Email"  class="form-control"/>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 separaCampos">
+                        <label for="senha" class="control-label color">Senha:</label>
+                        <input name="senha" ng-model="senha" type="password" placeholder="Senha" class="form-control" />
+                    </div>
+                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                        <h5> Não possui usuario? <a href="#/cadUsuario">Clique aqui</a></h5>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 separaCampos">
+                        <button type="submit" class="btn btn-success" value="Login">Acessar</button>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--<form ng-submit="login(email, senha)">
+    <div class="row">
+
+  	  <input name="email" ng-model="email" type="email" placeholder="Email"  />
+  	  <input name="senha" ng-model="senha" type="senha" placeholder="Senha"  />
+
+  	  <br /> <button value="Login" type="Submit">Entrar</button>
+    </div>
+</form>-->

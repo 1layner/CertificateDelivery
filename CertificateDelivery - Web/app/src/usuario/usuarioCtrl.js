@@ -7,28 +7,63 @@ angular.module('app')
         "permissao": []
     };
     
-  
     $scope.permissao={};
     $scope.permissoes=[];
     
-   
-        $http.get("http://localhost:8080/permissao/listaTodos")
-        .success(function(data){
-            $scope.permissoes=data;
-            console.log(data);
+    $scope.sucesso = false;
+
+    $http.get("http://localhost:8080/public/permissao/listaTodos")
+    .success(function(data){
+        $scope.permissoes=data;
+        console.log(data);
+        
+    })
+    .error(function(error){
+        console.log("Erro ao listar permissoes");
+    });
+
+    $scope.cadastrarUsuario = function(usuario){  
+        $http.post("http://localhost:8080/public/usuario/save", usuario)
+            .success(function(data){                
+        
+                $scope.usuario = data;
+                //$scope.usuario.push(data);
             
-        })
-        .error(function(error){
-            console.log("Erro ao listar permissoes");
-        });
-   
+                $scope.usuario = inicializar();
+            
+                $scope.cadUsuario.$setUntouched();
+                $scope.cadUsuario.$setPristine();
+                
+                $scope.finalSucesso();
+                
+                console.log("Usuario cadastrado com sucesso!!");
+            })
+            .error(function(error){ 
+                console.log("Erro ao cadastrar usuario");
+            });
+    };
     
-    $scope.cadastrarUsuario = function(usuario){
-        $http.post("http://localhost:8080/usuario/save", usuario)
+    $scope.finalSucesso = function(){
+        $scope.sucesso = true;
+    }
+});
+
+function inicializar(){
+    return {
+        nome : "",
+        //permissao : "permissao[1].id",
+        email : "",
+        senha: "" 
+    }
+}
+
+
+//$http.post("http://localhost:8080/usuario/save", usuario)
+        /*$http.post("http://localhost:8080/public/usuario/save")
         .success(function(data){                
         
-            $scope.usuario = data;
-            //$scope.usuario.push(data);
+            //$scope.usuario = data;
+            $scope.usuario.push(data);
             
             $scope.usuario = inicializar();
             
@@ -41,22 +76,5 @@ angular.module('app')
         })
         .error(function(error){ 
             console.log("Erro ao cadastrar usuario");
-        });
-    };
-    
-    $scope.finalSucesso = function(){
-        $scope.sucesso = true;
-    }
-});
-
-function inicializar(){
-    return {
-        nome : "",
-        permissao : "ADMINISTRADOR",
-        email : "",
-        senha: "" 
-    }
-}
-
-
+        });*/
 
