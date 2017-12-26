@@ -26,10 +26,12 @@ import br.com.certificateDelivery.utils.BaseEntity;
 @AttributeOverride(name="id", column=@Column(name="coddatahora"))
 public class DataHoraEntity extends BaseEntity<Long> {
 	
-	@JsonFormat(pattern = "dd/MM/yyyy")
+	//@JsonFormat(pattern = "dd/MM/yyyy")
+	@JsonFormat(pattern = "yyyy/MM/dd")
 	@Column(name="dataevento", nullable=true)
 	private Date dataEvento;
 
+	@JsonFormat(pattern = "HH:mm:ss")
 	@Column(name="horaevento", nullable=true)
 	private Time horaEvento;
 	

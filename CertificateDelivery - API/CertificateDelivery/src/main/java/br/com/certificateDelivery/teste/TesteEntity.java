@@ -1,4 +1,4 @@
-package br.com.certificateDelivery.teste;
+/*package br.com.certificateDelivery.teste;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.CascadeType;
@@ -48,4 +48,4 @@ public class TesteEntity extends BaseEntity<Long> {
 	public void setCodimgfk(ImageEntity codimgfk) {
 		this.codimgfk = codimgfk;
 	}
-}
+}*/

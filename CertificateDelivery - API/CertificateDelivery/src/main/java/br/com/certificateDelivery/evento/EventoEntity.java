@@ -25,6 +25,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import br.com.certificateDelivery.dataHora.DataHoraEntity;
 import br.com.certificateDelivery.image.ImageEntity;
+import br.com.certificateDelivery.inscricao.InscricaoEntity;
 import br.com.certificateDelivery.logradouro.LogradouroEntity;
 import br.com.certificateDelivery.usuario.UsuarioEntity;
 import br.com.certificateDelivery.usuario.UsuarioRepository;
@@ -56,7 +57,8 @@ public class EventoEntity extends BaseEntity<Long> {
 	@Column(name="observacoes", length=1000, nullable=true)
 	private String observacoes;
 	
-	@JsonFormat(pattern="dd/MM/yyyy")
+	//@JsonFormat(pattern="dd/MM/yyyy")
+	@JsonFormat(pattern = "yyyy/MM/dd")
 	@Column(name="datalimite", nullable=true)
 	private Date dataLimite;
 	
@@ -70,7 +72,10 @@ public class EventoEntity extends BaseEntity<Long> {
 	private String corpoCertPalestrante;
 	
 	@Column(name="linkinscricao", length=255, nullable=true	)
-	private String linkInscricao;
+	private int linkInscricao;
+	
+	@Column(name="liberacao", nullable=true)
+	private boolean liberacao;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="codlogradourofk")
@@ -84,9 +89,13 @@ public class EventoEntity extends BaseEntity<Long> {
 	@JoinColumn(name="usufk")
 	private UsuarioEntity usuario;
 	
-	@OneToOne
-	@JoinColumn(name="codimgcertificado", nullable=true)
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="codimgfk", nullable=true)
 	private ImageEntity codimgfk;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="evento", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	private List<InscricaoEntity> inscricao;
 	
 	public EventoEntity(){
 		
@@ -94,8 +103,180 @@ public class EventoEntity extends BaseEntity<Long> {
 
 	public EventoEntity(String nome, String local, int contato, String categoria, boolean acompanhante,
 			boolean tipoEvento, String observacoes, Date dataLimite, String corpoCertOuvinte,
+			String corpoCertOrganizador, String corpoCertPalestrante, int linkInscricao, boolean liberacao,
+			LogradouroEntity logradouro, DataHoraEntity dataHora, UsuarioEntity usuario, ImageEntity codimgfk,
+			List<InscricaoEntity> inscricao) {
+		super();
+		this.nome = nome;
+		this.local = local;
+		this.contato = contato;
+		this.categoria = categoria;
+		this.acompanhante = acompanhante;
+		this.tipoEvento = tipoEvento;
+		this.observacoes = observacoes;
+		this.dataLimite = dataLimite;
+		this.corpoCertOuvinte = corpoCertOuvinte;
+		this.corpoCertOrganizador = corpoCertOrganizador;
+		this.corpoCertPalestrante = corpoCertPalestrante;
+		this.linkInscricao = linkInscricao;
+		this.liberacao = liberacao;
+		this.logradouro = logradouro;
+		this.dataHora = dataHora;
+		this.usuario = usuario;
+		this.codimgfk = codimgfk;
+		this.inscricao = inscricao;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getLocal() {
+		return local;
+	}
+
+	public void setLocal(String local) {
+		this.local = local;
+	}
+
+	public int getContato() {
+		return contato;
+	}
+
+	public void setContato(int contato) {
+		this.contato = contato;
+	}
+
+	public String getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+
+	public boolean isAcompanhante() {
+		return acompanhante;
+	}
+
+	public void setAcompanhante(boolean acompanhante) {
+		this.acompanhante = acompanhante;
+	}
+
+	public boolean isTipoEvento() {
+		return tipoEvento;
+	}
+
+	public void setTipoEvento(boolean tipoEvento) {
+		this.tipoEvento = tipoEvento;
+	}
+
+	public String getObservacoes() {
+		return observacoes;
+	}
+
+	public void setObservacoes(String observacoes) {
+		this.observacoes = observacoes;
+	}
+
+	public Date getDataLimite() {
+		return dataLimite;
+	}
+
+	public void setDataLimite(Date dataLimite) {
+		this.dataLimite = dataLimite;
+	}
+
+	public String getCorpoCertOuvinte() {
+		return corpoCertOuvinte;
+	}
+
+	public void setCorpoCertOuvinte(String corpoCertOuvinte) {
+		this.corpoCertOuvinte = corpoCertOuvinte;
+	}
+
+	public String getCorpoCertOrganizador() {
+		return corpoCertOrganizador;
+	}
+
+	public void setCorpoCertOrganizador(String corpoCertOrganizador) {
+		this.corpoCertOrganizador = corpoCertOrganizador;
+	}
+
+	public String getCorpoCertPalestrante() {
+		return corpoCertPalestrante;
+	}
+
+	public void setCorpoCertPalestrante(String corpoCertPalestrante) {
+		this.corpoCertPalestrante = corpoCertPalestrante;
+	}
+
+	public int getLinkInscricao() {
+		return linkInscricao;
+	}
+
+	public void setLinkInscricao(int linkInscricao) {
+		this.linkInscricao = linkInscricao;
+	}
+
+	public boolean isLiberacao() {
+		return liberacao;
+	}
+
+	public void setLiberacao(boolean liberacao) {
+		this.liberacao = liberacao;
+	}
+
+	public LogradouroEntity getLogradouro() {
+		return logradouro;
+	}
+
+	public void setLogradouro(LogradouroEntity logradouro) {
+		this.logradouro = logradouro;
+	}
+
+	public DataHoraEntity getDataHora() {
+		return dataHora;
+	}
+
+	public void setDataHora(DataHoraEntity dataHora) {
+		this.dataHora = dataHora;
+	}
+
+	public UsuarioEntity getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(UsuarioEntity usuario) {
+		this.usuario = usuario;
+	}
+
+	public ImageEntity getCodimgfk() {
+		return codimgfk;
+	}
+
+	public void setCodimgfk(ImageEntity codimgfk) {
+		this.codimgfk = codimgfk;
+	}
+
+	public List<InscricaoEntity> getInscricao() {
+		return inscricao;
+	}
+
+	public void setInscricao(List<InscricaoEntity> inscricao) {
+		this.inscricao = inscricao;
+	}
+
+	
+	
+	/*public EventoEntity(String nome, String local, int contato, String categoria, boolean acompanhante,
+			boolean tipoEvento, String observacoes, Date dataLimite, String corpoCertOuvinte,
 			String corpoCertOrganizador, String corpoCertPalestrante, String linkInscricao, LogradouroEntity logradouro,
-			UsuarioEntity usuario, DataHoraEntity dataHora) {
+			UsuarioEntity usuario, DataHoraEntity dataHora, boolean liberacao) {
 		super();
 		this.nome = nome;
 		this.local = local;
@@ -112,6 +293,7 @@ public class EventoEntity extends BaseEntity<Long> {
 		this.logradouro = logradouro;
 		this.usuario = usuario;
 		this.dataHora = dataHora;
+		this.liberacao = liberacao;
 	}
 
 	public String getNome() {
@@ -233,5 +415,12 @@ public class EventoEntity extends BaseEntity<Long> {
 	public void setDataHora(DataHoraEntity dataHora) {
 		this.dataHora = dataHora;
 	}
-	
+
+	public boolean isLiberacao() {
+		return liberacao;
+	}
+
+	public void setLiberacao(boolean liberacao) {
+		this.liberacao = liberacao;
+	}*/
 }

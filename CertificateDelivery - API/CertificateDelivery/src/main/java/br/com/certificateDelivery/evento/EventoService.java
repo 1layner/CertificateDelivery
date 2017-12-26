@@ -15,6 +15,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,13 +41,29 @@ public class EventoService extends GenericService<EventoEntity, Long> {
 	@Autowired
 	private EventoRepository eventoRepository;
 	
-	//servico de meus eventos
-	@RequestMapping(value="/{id}", method=RequestMethod.GET)
-	public List<EventoEntity> sortEvento(
-			@PathVariable Long id){
+//	//servico de meus eventos
+//	@RequestMapping(value="/{id}", method=RequestMethod.GET)
+//	public List<EventoEntity> sortEvento(
+//			@PathVariable Long id){
+//	
+//		return this.eventoRepository.findByUsuarioId(id);
+//	}
 	
-		return this.eventoRepository.findByUsuarioId(id);
-	}
+	//servico de meus eventos
+		@RequestMapping(value="/retornaMeusEventos", method=RequestMethod.GET)
+		public List<EventoEntity> sortEvento(){
+			Object usuarioLogado = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+			String username;
+			
+			if(usuarioLogado instanceof UserDetails){
+				username = ((UserDetails)usuarioLogado).getUsername();
+			}
+			else{
+				username=usuarioLogado.toString();
+			}
+			
+			return this.eventoRepository.findByUsuarioEvento(username);
+		}
 	
 	//servico de meus eventos paginado
 	@RequestMapping(value="/{id}/{page}/{size}", method=RequestMethod.GET)
@@ -64,10 +82,21 @@ public class EventoService extends GenericService<EventoEntity, Long> {
 	}
 	
 	//servico meus eventos inscritos
-	@RequestMapping(value="/listaInscritos/{id}", method=RequestMethod.GET)
-	public List<EventoEntity> listaEventosInscritos(@PathVariable Long id){
+	// tem que voltar esse servico
+	@RequestMapping(value="/listaInscritos", method=RequestMethod.GET)
+	public List<EventoEntity> listaEventosInscritos(){
+		Object usuarioLogado = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String username;
 		
-		return this.eventoRepository.retornaInscritos(id);
+		if(usuarioLogado instanceof UserDetails){
+			username = ((UserDetails)usuarioLogado).getUsername();
+		}
+		else{
+			username=usuarioLogado.toString();
+		}
+		
+		//return this.eventoRepository.retornaInscritos(username);
+		return this.eventoRepository.eventosInscritos(username);
 	}
 	
 	/*@Autowired

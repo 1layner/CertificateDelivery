@@ -9,7 +9,7 @@ import br.com.certificateDelivery.utils.BaseEntity;
 
 @Entity
 @Table(name="tb_img_certificado")
-//@AttributeOverride(name="id", column=@Column(name="codimgcertificado"))
+@AttributeOverride(name="id", column=@Column(name="codimgcertificado"))
 public class ImageEntity extends BaseEntity<Long> {
 	
 	private static final long serialVersionUID=1L;

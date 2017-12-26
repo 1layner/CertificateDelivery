@@ -16,8 +16,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.omg.PortableServer.LIFESPAN_POLICY_ID;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import br.com.certificateDelivery.UsuarioInscricao.UsuarioInscricaoEntity;
 import br.com.certificateDelivery.evento.EventoEntity;
 import br.com.certificateDelivery.permissao.PermissaoEntity;
 import br.com.certificateDelivery.utils.BaseEntity;
@@ -100,4 +103,5 @@ public class UsuarioEntity extends BaseEntity<Long> {
 	public void setEvento(List<EventoEntity> evento) {
 		this.evento = evento;
 	}
+
 }
